@@ -3,6 +3,7 @@
 import * as React from "react";
 
 import { Example, ExampleWrapper } from "@/components/example";
+import { LocaleDemo } from "@/components/locale-demo";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -96,6 +97,9 @@ import {
 export function ComponentExample() {
   return (
     <ExampleWrapper>
+      <Example title="Locale" className="items-center justify-center">
+        <LocaleDemo />
+      </Example>
       <CardExample />
       <FormExample />
     </ExampleWrapper>

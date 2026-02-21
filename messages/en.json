@@ -1,0 +1,19 @@
+{
+  "HomePage": {
+    "title": "Hello world!"
+  },
+  "LocaleDemo": {
+    "title": "Internationalization",
+    "description": "Live demo of next-intl: locale switching, translated strings, and formatted values.",
+    "greeting": "Welcome to Airboost",
+    "currentLocale": "Current locale",
+    "switchLocale": "Switch to {locale}",
+    "formattedDate": "Formatted date",
+    "formattedNumber": "Formatted number",
+    "relativeTime": "Relative time",
+    "languages": {
+      "en": "English",
+      "fr": "French"
+    }
+  }
+}
