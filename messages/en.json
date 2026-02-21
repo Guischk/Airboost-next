@@ -18,11 +18,12 @@
   },
   "Hero": {
     "badge": "Open Source · MIT License",
-    "titleBefore": "Your Airtable,",
-    "titleHighlight": "240× Faster",
-    "description": "Stop waiting for Airtable's slow API. Airboost caches your data in SQLite for sub-millisecond queries, unlimited throughput, and zero downtime.",
+    "titleBefore": "Make Airtable a",
+    "titleHighlight": "Production-Ready Backend",
+    "description": "Stop worrying about Airtable's rate limits and latency. Airboost sits between your app and Airtable, caching your data in SQLite for sub-millisecond queries, unlimited throughput, and zero downtime.",
     "ctaDeploy": "Deploy on Railway",
-    "ctaGithub": "View on GitHub"
+    "ctaGithub": "View on GitHub",
+    "socialProof": "Join developers building faster, more resilient apps on top of Airtable."
   },
   "Features": {
     "title": "Everything you need",

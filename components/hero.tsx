@@ -19,6 +19,7 @@ import { AuroraText } from "@/components/ui/aurora-text";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Particles } from "@/components/ui/particles";
 import { Badge } from "@/components/ui/badge";
+import { ArchitectureBeam } from "@/components/architecture-beam";
 
 const featurePills = [
   { key: "subMs", icon: ZapIcon },
@@ -56,10 +57,9 @@ export function Hero() {
         </div>
 
         {/* Main Title */}
-        <Title header="h1" size="xl" className="max-w-4xl">
+        <Title header="h1" size="xl" className="max-w-5xl">
           {t("Hero.titleBefore")}
-          <br className="sm:hidden" />
-          {" "}
+          <br className="sm:hidden" />{" "}
           <AuroraText colors={["#38bdf8", "#818cf8", "#c084fc"]}>
             {t("Hero.titleHighlight")}
           </AuroraText>
@@ -84,7 +84,12 @@ export function Hero() {
               </span>
             </ShimmerButton>
           </a>
-          <Button variant="outline" size="lg" className="h-11 gap-2 px-6" asChild>
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-11 gap-2 px-6"
+            asChild
+          >
             <a
               href="https://github.com/Guischk/AirBoost"
               target="_blank"
@@ -96,8 +101,20 @@ export function Hero() {
           </Button>
         </div>
 
+        {/* Social Proof */}
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <p className="text-xs text-muted-foreground">
+            {t("Hero.socialProof")}
+          </p>
+        </div>
+
+        {/* Architecture Beam Component */}
+        <div className="mt-16 w-full max-w-3xl px-4">
+          <ArchitectureBeam />
+        </div>
+
         {/* Feature Pills */}
-        <div className="mt-14 flex flex-wrap justify-center gap-3">
+        <div className="mt-16 flex flex-wrap justify-center gap-3">
           {featurePills.map(({ key, icon: Icon }) => (
             <Badge
               key={key}

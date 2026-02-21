@@ -18,11 +18,12 @@
   },
   "Hero": {
     "badge": "Open Source · Licence MIT",
-    "titleBefore": "Votre Airtable,",
-    "titleHighlight": "240× plus rapide",
-    "description": "Fini l'attente avec l'API lente d'Airtable. Airboost met vos données en cache SQLite pour des requêtes sub-milliseconde, un débit illimité et zéro interruption.",
+    "titleBefore": "Faites d'Airtable un",
+    "titleHighlight": "Backend Production-Ready",
+    "description": "Oubliez les quotas et la latence d'Airtable. Airboost se place entre votre app et Airtable, mettant en cache vos données dans SQLite pour des requêtes sub-milliseconde, un débit illimité et zéro interruption.",
     "ctaDeploy": "Déployer sur Railway",
-    "ctaGithub": "Voir sur GitHub"
+    "ctaGithub": "Voir sur GitHub",
+    "socialProof": "Rejoignez les développeurs qui bâtissent des apps plus rapides et résilientes sur Airtable."
   },
   "Features": {
     "title": "Tout ce qu'il vous faut",
