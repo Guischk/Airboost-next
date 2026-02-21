@@ -1,5 +1,13 @@
 import { useTranslations } from "next-intl";
-import { ArrowRightIcon, DatabaseIcon, ZapIcon, ServerIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  DatabaseIcon,
+  GithubIcon,
+  RocketIcon,
+  ServerIcon,
+  ShieldCheckIcon,
+  ZapIcon,
+} from "lucide-react";
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
@@ -10,91 +18,96 @@ import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Particles } from "@/components/ui/particles";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
+import { Badge } from "@/components/ui/badge";
+
+const featurePills = [
+  { key: "subMs", icon: ZapIcon },
+  { key: "zeroDowntime", icon: DatabaseIcon },
+  { key: "selfHosted", icon: ServerIcon },
+  { key: "openSource", icon: ShieldCheckIcon },
+] as const;
 
 export function Hero() {
-  const t = useTranslations("Project");
+  const t = useTranslations();
 
   return (
-    <Section className="relative overflow-hidden pt-24 pb-32 md:pt-32 md:pb-40">
+    <Section className="relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32">
       {/* Background Particles */}
       <Particles
         className="absolute inset-0 -z-10"
-        quantity={100}
+        quantity={60}
         ease={80}
-        color="#eeeeee"
+        color="#6366f1"
         refresh
       />
+
+      {/* Radial glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-125 w-200 -translate-x-1/2 rounded-full bg-primary/6 blur-3xl" />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
         <div className="mb-8 flex justify-center">
-          <div className="group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800">
-            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-              <span>✨ Introducing {t("name")} 1.0</span>
-              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+          <div className="group rounded-full border border-white/10 bg-white/5 text-base transition-all ease-in hover:cursor-pointer hover:bg-white/10">
+            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 text-sm transition ease-out hover:duration-300">
+              <span>{t("Hero.badge")}</span>
+              <ArrowRightIcon className="ml-1.5 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </AnimatedShinyText>
           </div>
         </div>
 
         {/* Main Title */}
-        <Title header="h1" size="xl" className="max-w-4xl tracking-tight">
-          {t("tagline").split("Airtable")[0]}
-          <AuroraText>Airtable</AuroraText>
-          {t("tagline").split("Airtable")[1]}
+        <Title header="h1" size="xl" className="max-w-4xl">
+          {t("Hero.titleBefore")}
+          <br className="sm:hidden" />
+          {" "}
+          <AuroraText colors={["#38bdf8", "#818cf8", "#c084fc"]}>
+            {t("Hero.titleHighlight")}
+          </AuroraText>
         </Title>
 
         {/* Description */}
         <Paragraph size="lg" variant="muted" className="mt-6 max-w-2xl">
-          {t("description")}
+          {t("Hero.description")}
         </Paragraph>
 
         {/* CTA Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <ShimmerButton className="shadow-2xl">
-            <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
-              Get Started
-            </span>
-          </ShimmerButton>
-          <Button variant="outline" size="lg" className="h-12 px-8">
-            View Documentation
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <a
+            href="https://railway.com/template/airboost?referralCode=3Ri9K9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ShimmerButton className="h-11 px-6 shadow-2xl">
+              <RocketIcon className="mr-2 size-4" />
+              <span className="text-sm font-medium tracking-tight text-white lg:text-base">
+                {t("Hero.ctaDeploy")}
+              </span>
+            </ShimmerButton>
+          </a>
+          <Button variant="outline" size="lg" className="h-11 gap-2 px-6" asChild>
+            <a
+              href="https://github.com/Guischk/AirBoost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon className="size-4" />
+              {t("Hero.ctaGithub")}
+            </a>
           </Button>
         </div>
 
-        {/* Features List */}
-        <div className="mt-16 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <ZapIcon className="size-4 text-primary" />
-            <span>{t("features.subMs")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <DatabaseIcon className="size-4 text-primary" />
-            <span>{t("features.zeroDowntime")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ServerIcon className="size-4 text-primary" />
-            <span>{t("features.selfHosted")}</span>
-          </div>
-        </div>
-
-        {/* Video Dialog */}
-        <div className="relative mt-20 w-full max-w-5xl rounded-xl border bg-background/50 p-2 shadow-2xl backdrop-blur-sm">
-          <BorderBeam size={250} duration={12} delay={9} />
-          <HeroVideoDialog
-            className="dark:hidden block"
-            animationStyle="from-center"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4ymcqFtbiMlcjzOv"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-            thumbnailAlt="Hero Video"
-          />
-          <HeroVideoDialog
-            className="hidden dark:block"
-            animationStyle="from-center"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4ymcqFtbiMlcjzOv"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
-            thumbnailAlt="Hero Video"
-          />
+        {/* Feature Pills */}
+        <div className="mt-14 flex flex-wrap justify-center gap-3">
+          {featurePills.map(({ key, icon: Icon }) => (
+            <Badge
+              key={key}
+              variant="outline"
+              className="gap-1.5 border-border/60 bg-white/5 px-3 py-1 text-xs text-muted-foreground"
+            >
+              <Icon className="size-3 text-primary" />
+              {t(`Project.features.${key}`)}
+            </Badge>
+          ))}
         </div>
       </Container>
     </Section>

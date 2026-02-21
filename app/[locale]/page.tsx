@@ -1,6 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
 
+import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { Features } from "@/components/features";
+import { DeployCTA } from "@/components/deploy-cta";
+import { Footer } from "@/components/footer";
 
 export default async function Page({
   params,
@@ -11,8 +15,14 @@ export default async function Page({
   setRequestLocale(locale);
 
   return (
-    <main>
-      <Hero />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Features />
+        <DeployCTA />
+      </main>
+      <Footer />
+    </>
   );
 }
