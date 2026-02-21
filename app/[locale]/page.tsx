@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 
-import { ComponentExample } from "@/components/component-example";
+import { Hero } from "@/components/hero";
 
 export default async function Page({
   params,
@@ -10,5 +10,9 @@ export default async function Page({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <ComponentExample />;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }

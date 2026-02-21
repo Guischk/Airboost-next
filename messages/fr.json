@@ -1,19 +1,24 @@
 {
+  "Project": {
+    "name": "Airboost",
+    "description": "Cache SQLite haute performance qui transforme votre Airtable en un backend prêt pour la production.",
+    "tagline": "Airtable mais 240x plus rapide"
+  },
   "HomePage": {
     "title": "Bonjour le monde !"
   },
   "LocaleDemo": {
     "title": "Internationalisation",
-    "description": "Demo en direct de next-intl : changement de langue, textes traduits et valeurs format\u00e9es.",
+    "description": "Demo en direct de next-intl : changement de langue, textes traduits et valeurs formatées.",
     "greeting": "Bienvenue sur Airboost",
     "currentLocale": "Langue actuelle",
     "switchLocale": "Passer en {locale}",
-    "formattedDate": "Date format\u00e9e",
-    "formattedNumber": "Nombre format\u00e9",
+    "formattedDate": "Date formatée",
+    "formattedNumber": "Nombre formaté",
     "relativeTime": "Temps relatif",
     "languages": {
-      "en": "anglais",
-      "fr": "fran\u00e7ais"
+      "en": "Anglais",
+      "fr": "Français"
     }
   }
 }

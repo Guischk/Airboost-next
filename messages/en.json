@@ -1,4 +1,14 @@
 {
+  "Project": {
+    "name": "Airboost",
+    "description": "High-performance SQLite cache that turns your Airtable into a production-ready backend.",
+    "tagline": "Airtable but 240x faster",
+    "features": {
+      "subMs": "Sub-ms queries",
+      "zeroDowntime": "Zero downtime",
+      "selfHosted": "Self-hosted"
+    }
+  },
   "HomePage": {
     "title": "Hello world!"
   },
