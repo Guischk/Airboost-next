@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 
+import { Analytics } from "@vercel/analytics/react";
+
 import { hasLocale } from "next-intl";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -40,6 +42,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`dark ${notoSans.variable}`}>
       <body className="antialiased scroll-smooth">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

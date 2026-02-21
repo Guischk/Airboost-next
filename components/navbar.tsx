@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 
 import { useTranslations } from "next-intl";
-import { ZapIcon, GithubIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 
 import { Container } from "@/components/base/container";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -34,7 +35,13 @@ export function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <ZapIcon className="size-5 text-primary" />
+          <Image
+            src="/airboost_logo.svg"
+            alt="Airboost Logo"
+            width={24}
+            height={24}
+            className="size-6"
+          />
           <span>Airboost</span>
         </Link>
 
@@ -46,10 +53,7 @@ export function Navbar() {
           >
             {t("features")}
           </a>
-          <a
-            href="#deploy"
-            className="transition-colors hover:text-foreground"
-          >
+          <a href="#deploy" className="transition-colors hover:text-foreground">
             {t("deploy")}
           </a>
           <a

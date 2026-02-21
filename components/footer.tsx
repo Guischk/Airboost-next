@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ZapIcon } from "lucide-react";
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
@@ -36,7 +36,13 @@ export function Footer() {
           {/* Brand */}
           <div className="flex flex-col items-center gap-2 sm:items-start">
             <div className="flex items-center gap-2 font-bold">
-              <ZapIcon className="size-4 text-primary" />
+              <Image
+                src="/airboost_logo.svg"
+                alt="Airboost Logo"
+                width={20}
+                height={20}
+                className="size-5"
+              />
               <span>Airboost</span>
             </div>
             <p className="text-sm text-muted-foreground">{t("tagline")}</p>
