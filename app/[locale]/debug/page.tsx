@@ -26,145 +26,157 @@ const paragraphSizes = ["default", "sm", "lg"] as const;
 
 export default function DebugPage() {
   return (
-    <Container className="space-y-12">
-      <header>
-        <h1 className="text-foreground text-3xl font-bold tracking-tight">
-          Debug — Base Components
-        </h1>
-        <p className="text-muted-foreground mt-1 text-sm">
-          Visual reference for every component in{" "}
-          <code className="bg-muted rounded px-1.5 py-0.5 text-xs">
-            @/components/base
-          </code>
-        </p>
-      </header>
+    <Section spacing="sm">
+      <Container className="space-y-16">
+        <header className="space-y-2">
+          <Title header="h1" size="xl">
+            Debug — Base Components
+          </Title>
+          <Paragraph variant="muted">
+            Visual reference for every component in{" "}
+            <code className="bg-muted rounded px-1.5 py-0.5 text-xs">
+              @/components/base
+            </code>
+          </Paragraph>
+        </header>
 
-      <ComponentSection
-        name="Title"
-        source="components/base/title.tsx"
-        description="Semantic heading with variant styling."
-      >
-        {titleVariants.map((variant) => (
-          <VariantGroup key={variant} label={`variant="${variant}"`}>
-            <div className="grid gap-3">
-              {titleSizes.map((size) => (
-                <div key={size} className="flex items-baseline gap-4">
-                  <code className="text-muted-foreground w-20 shrink-0 text-right font-mono text-xs">
-                    size=&quot;{size}&quot;
-                  </code>
-                  <Title variant={variant} size={size} header="h2">
-                    The quick brown fox
-                  </Title>
+        <ComponentSection
+          name="Title"
+          source="components/base/title.tsx"
+          description="Semantic heading with variant styling."
+        >
+          {titleVariants.map((variant) => (
+            <VariantGroup key={variant} label={`variant="${variant}"`}>
+              <div className="grid gap-3">
+                {titleSizes.map((size) => (
+                  <div key={size} className="flex items-baseline gap-4">
+                    <code className="text-muted-foreground w-20 shrink-0 text-right font-mono text-xs">
+                      size=&quot;{size}&quot;
+                    </code>
+                    <Title variant={variant} size={size} header="h2">
+                      The quick brown fox
+                    </Title>
+                  </div>
+                ))}
+              </div>
+            </VariantGroup>
+          ))}
+        </ComponentSection>
+
+        <ComponentSection
+          name="Paragraph"
+          source="components/base/paragraph.tsx"
+          description="Semantic paragraph with variant styling."
+        >
+          {paragraphVariants.map((variant) => (
+            <VariantGroup key={variant} label={`variant="${variant}"`}>
+              <div className="grid gap-3">
+                {paragraphSizes.map((size) => (
+                  <div key={size} className="flex items-baseline gap-4">
+                    <code className="text-muted-foreground w-20 shrink-0 text-right font-mono text-xs">
+                      size=&quot;{size}&quot;
+                    </code>
+                    <Paragraph variant={variant} size={size}>
+                      The quick brown fox jumps over the lazy dog.
+                    </Paragraph>
+                  </div>
+                ))}
+              </div>
+            </VariantGroup>
+          ))}
+        </ComponentSection>
+
+        <ComponentSection
+          name="Container"
+          source="components/base/container.tsx"
+          description="Constrains maximum width and centers content."
+        >
+          <VariantGroup label="default">
+            <div className="bg-muted/50 rounded-lg border border-dashed py-4">
+              <Container>
+                <div className="bg-primary/10 text-primary flex h-16 items-center justify-center rounded border border-dashed">
+                  Container Content (max-w-7xl)
                 </div>
-              ))}
+              </Container>
             </div>
           </VariantGroup>
-        ))}
-      </ComponentSection>
+        </ComponentSection>
 
-      <ComponentSection
-        name="Paragraph"
-        source="components/base/paragraph.tsx"
-        description="Semantic paragraph with variant styling."
-      >
-        {paragraphVariants.map((variant) => (
-          <VariantGroup key={variant} label={`variant="${variant}"`}>
-            <div className="grid gap-3">
-              {paragraphSizes.map((size) => (
-                <div key={size} className="flex items-baseline gap-4">
-                  <code className="text-muted-foreground w-20 shrink-0 text-right font-mono text-xs">
-                    size=&quot;{size}&quot;
-                  </code>
-                  <Paragraph variant={variant} size={size}>
-                    The quick brown fox jumps over the lazy dog.
-                  </Paragraph>
-                </div>
-              ))}
+        <ComponentSection
+          name="Section"
+          source="components/base/section.tsx"
+          description="Manages vertical rhythm and semantics."
+        >
+          <VariantGroup label="spacing='default'">
+            <div className="bg-muted/50 rounded-lg border border-dashed">
+              <Section className="bg-primary/10 border-y border-dashed">
+                <Container>
+                  <div className="text-primary text-center">
+                    Section Content (py-12 md:py-24)
+                  </div>
+                </Container>
+              </Section>
             </div>
           </VariantGroup>
-        ))}
-      </ComponentSection>
-
-      <ComponentSection
-        name="Container"
-        source="components/base/container.tsx"
-        description="Constrains maximum width and centers content."
-      >
-        <VariantGroup label="default">
-          <div className="bg-muted/50 rounded-lg border border-dashed py-4">
-            <Container>
-              <div className="bg-primary/10 text-primary flex h-16 items-center justify-center rounded border border-dashed">
-                Container Content (max-w-7xl)
-              </div>
-            </Container>
-          </div>
-        </VariantGroup>
-      </ComponentSection>
-
-      <ComponentSection
-        name="Section"
-        source="components/base/section.tsx"
-        description="Manages vertical rhythm and semantics."
-      >
-        <VariantGroup label="spacing='default'">
-          <div className="bg-muted/50 rounded-lg border border-dashed">
-            <Section className="bg-primary/10 border-y border-dashed">
-              <Container>
-                <div className="text-primary text-center">Section Content (py-12 md:py-24)</div>
-              </Container>
-            </Section>
-          </div>
-        </VariantGroup>
-        <VariantGroup label="spacing='sm'">
-          <div className="bg-muted/50 rounded-lg border border-dashed">
-            <Section spacing="sm" className="bg-primary/10 border-y border-dashed">
-              <Container>
-                <div className="text-primary text-center">Section Content (py-8 md:py-12)</div>
-              </Container>
-            </Section>
-          </div>
-        </VariantGroup>
-      </ComponentSection>
-
-      <ComponentSection
-        name="Grid"
-        source="components/base/grid.tsx"
-        description="Standardized grid system."
-      >
-        <VariantGroup label="cols={3} gap='default'">
-          <Grid cols={3}>
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="bg-primary/10 text-primary flex h-24 items-center justify-center rounded border border-dashed">
-                Col {i + 1}
-              </div>
-            ))}
-          </Grid>
-        </VariantGroup>
-        <VariantGroup label="cols={12} gap='sm'">
-          <Grid cols={12} gap="sm">
-            <div className="bg-primary/10 text-primary col-span-4 flex h-16 items-center justify-center rounded border border-dashed">
-              Span 4
+          <VariantGroup label="spacing='sm'">
+            <div className="bg-muted/50 rounded-lg border border-dashed">
+              <Section
+                spacing="sm"
+                className="bg-primary/10 border-y border-dashed"
+              >
+                <Container>
+                  <div className="text-primary text-center">
+                    Section Content (py-8 md:py-12)
+                  </div>
+                </Container>
+              </Section>
             </div>
-            <div className="bg-primary/10 text-primary col-span-8 flex h-16 items-center justify-center rounded border border-dashed">
-              Span 8
-            </div>
-          </Grid>
-        </VariantGroup>
-      </ComponentSection>
+          </VariantGroup>
+        </ComponentSection>
 
-      <ComponentSection
-        name="Link"
-        source="components/base/link.tsx"
-        description="Smart link handling internal (next-intl) and external URLs."
-      >
-        <VariantGroup label="Internal Link">
-          <Link href="/">Go to Home (Internal)</Link>
-        </VariantGroup>
-        <VariantGroup label="External Link">
-          <Link href="https://github.com">Go to GitHub (External)</Link>
-        </VariantGroup>
-      </ComponentSection>
-    </Container>
+        <ComponentSection
+          name="Grid"
+          source="components/base/grid.tsx"
+          description="Standardized grid system."
+        >
+          <VariantGroup label="cols={3} gap='default'">
+            <Grid cols={3}>
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-primary/10 text-primary flex h-24 items-center justify-center rounded border border-dashed"
+                >
+                  Col {i + 1}
+                </div>
+              ))}
+            </Grid>
+          </VariantGroup>
+          <VariantGroup label="cols={12} gap='sm'">
+            <Grid cols={12} gap="sm">
+              <div className="bg-primary/10 text-primary col-span-4 flex h-16 items-center justify-center rounded border border-dashed">
+                Span 4
+              </div>
+              <div className="bg-primary/10 text-primary col-span-8 flex h-16 items-center justify-center rounded border border-dashed">
+                Span 8
+              </div>
+            </Grid>
+          </VariantGroup>
+        </ComponentSection>
+
+        <ComponentSection
+          name="Link"
+          source="components/base/link.tsx"
+          description="Smart link handling internal (next-intl) and external URLs."
+        >
+          <VariantGroup label="Internal Link">
+            <Link href="/">Go to Home (Internal)</Link>
+          </VariantGroup>
+          <VariantGroup label="External Link">
+            <Link href="https://github.com">Go to GitHub (External)</Link>
+          </VariantGroup>
+        </ComponentSection>
+      </Container>
+    </Section>
   );
 }
 
@@ -180,11 +192,15 @@ function ComponentSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="space-y-4">
-      <div className="border-b pb-3">
-        <h2 className="text-foreground text-xl font-semibold">{name}</h2>
-        <p className="text-muted-foreground mt-0.5 text-sm">{description}</p>
-        <code className="text-muted-foreground mt-1 block font-mono text-xs">
+    <section className="space-y-6">
+      <div className="border-b pb-4">
+        <Title header="h2" size="lg">
+          {name}
+        </Title>
+        <Paragraph variant="muted" size="sm" className="mt-1">
+          {description}
+        </Paragraph>
+        <code className="text-muted-foreground mt-2 block font-mono text-xs">
           {source}
         </code>
       </div>
