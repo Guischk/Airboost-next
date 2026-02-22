@@ -5,6 +5,8 @@ import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
 import { Title } from "@/components/base/title";
 import { Paragraph } from "@/components/base/paragraph";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { MagicCard } from "@/components/ui/magic-card";
 
 const features = [
   { key: "blazingFast", icon: ZapIcon },
@@ -20,35 +22,48 @@ export function Features() {
     <Section id="features">
       <Container>
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <Title header="h2" size="lg">
-            {t("title")}
-          </Title>
-          <Paragraph variant="muted" size="lg" className="mt-4">
-            {t("subtitle")}
-          </Paragraph>
-        </div>
+        <BlurFade inView>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <Title header="h2" size="lg">
+              {t("title")}
+            </Title>
+            <Paragraph variant="muted" size="lg" className="mt-4">
+              {t("subtitle")}
+            </Paragraph>
+          </div>
+        </BlurFade>
 
         {/* 2x2 Grid */}
         <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
-          {features.map(({ key, icon: Icon }) => (
-            <div
-              key={key}
-              data-slot="feature-card"
-              className="group flex flex-col gap-4 rounded-2xl border border-border/50 bg-card/80 p-8 transition-colors duration-200 hover:border-primary/20 hover:bg-card"
-            >
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                <Icon className="size-6 text-primary" />
+          {features.map(({ key, icon: Icon }, idx) => (
+            <BlurFade key={key} delay={0.1 * idx} inView>
+              <div className="w-full h-full rounded-2xl">
+                <MagicCard
+                  gradientSize={200}
+                  gradientColor="oklch(0.14 0.04 265)"
+                  gradientFrom="oklch(0.62 0.22 265)"
+                  gradientTo="oklch(0.72 0.17 230)"
+                  className="w-full h-full"
+                >
+                  <div
+                    data-slot="feature-card"
+                    className="flex flex-col gap-4 p-8"
+                  >
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                      <Icon className="size-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-lg font-semibold text-foreground">
+                        {t(`${key}.name`)}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {t(`${key}.description`)}
+                      </p>
+                    </div>
+                  </div>
+                </MagicCard>
               </div>
-              <div>
-                <h3 className="mb-2 text-lg font-semibold text-foreground">
-                  {t(`${key}.name`)}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {t(`${key}.description`)}
-                </p>
-              </div>
-            </div>
+            </BlurFade>
           ))}
         </div>
       </Container>

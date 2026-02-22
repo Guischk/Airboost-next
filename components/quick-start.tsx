@@ -1,18 +1,16 @@
 "use client";
 
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import {
-  TerminalIcon,
-  BoxIcon,
-  TrainTrackIcon,
-  ArrowRightIcon,
-} from "lucide-react";
+import { TerminalIcon, BoxIcon, TrainTrackIcon } from "lucide-react";
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
 import { Title } from "@/components/base/title";
 import { Paragraph } from "@/components/base/paragraph";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { AnimatedBeam } from "@/components/ui/animated-beam";
 
 const codeBlocks = {
   local: `# Clone and run locally
@@ -46,26 +44,38 @@ docker run -d \\
 
 export function QuickStart() {
   const t = useTranslations("QuickStart");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const airtableRef = useRef<HTMLDivElement>(null);
+  const airboostRef = useRef<HTMLDivElement>(null);
+  const appRef = useRef<HTMLDivElement>(null);
 
   return (
     <Section id="quick-start">
       <Container>
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <Title header="h2" size="lg">
-            {t("title")}
-          </Title>
-          <Paragraph variant="muted" size="lg" className="mt-4">
-            {t("subtitle")}
-          </Paragraph>
-        </div>
+        <BlurFade inView>
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <Title header="h2" size="lg">
+              {t("title")}
+            </Title>
+            <Paragraph variant="muted" size="lg" className="mt-4">
+              {t("subtitle")}
+            </Paragraph>
+          </div>
+        </BlurFade>
 
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Left: Architecture Diagram (static) */}
-          <div className="flex flex-col items-center justify-center gap-6">
-            <div className="flex w-full max-w-xs flex-col items-center gap-4">
+          {/* Left: Architecture Diagram with AnimatedBeam */}
+          <BlurFade delay={0.1} inView>
+            <div
+              ref={containerRef}
+              className="relative flex flex-col items-center justify-center gap-12"
+            >
               {/* Airtable */}
-              <div className="flex w-full items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4">
+              <div
+                ref={airtableRef}
+                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+              >
                 <div className="text-center">
                   <p className="text-sm font-semibold text-foreground">
                     Airtable
@@ -76,14 +86,11 @@ export function QuickStart() {
                 </div>
               </div>
 
-              {/* Arrow */}
-              <div className="flex flex-col items-center gap-1 text-muted-foreground/50">
-                <div className="h-4 w-px bg-border" />
-                <ArrowRightIcon className="size-4 rotate-90" />
-              </div>
-
               {/* Airboost */}
-              <div className="flex w-full items-center justify-center rounded-xl border border-primary/30 bg-primary/5 px-6 py-4">
+              <div
+                ref={airboostRef}
+                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-primary/30 bg-primary/5 px-6 py-4"
+              >
                 <div className="text-center">
                   <p className="text-sm font-semibold text-primary">Airboost</p>
                   <p className="text-xs text-muted-foreground">
@@ -92,14 +99,11 @@ export function QuickStart() {
                 </div>
               </div>
 
-              {/* Arrow */}
-              <div className="flex flex-col items-center gap-1 text-muted-foreground/50">
-                <div className="h-4 w-px bg-border" />
-                <ArrowRightIcon className="size-4 rotate-90" />
-              </div>
-
               {/* Your App */}
-              <div className="flex w-full items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4">
+              <div
+                ref={appRef}
+                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+              >
                 <div className="text-center">
                   <p className="text-sm font-semibold text-foreground">
                     {t("diagramApp")}
@@ -109,29 +113,52 @@ export function QuickStart() {
                   </p>
                 </div>
               </div>
+
+              {/* Animated Beams */}
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={airtableRef}
+                toRef={airboostRef}
+                gradientStartColor="oklch(0.62 0.22 265)"
+                gradientStopColor="oklch(0.72 0.17 230)"
+                pathColor="oklch(1 0 0 / 8%)"
+                duration={4}
+              />
+              <AnimatedBeam
+                containerRef={containerRef}
+                fromRef={airboostRef}
+                toRef={appRef}
+                gradientStartColor="oklch(0.72 0.17 230)"
+                gradientStopColor="oklch(0.62 0.22 265)"
+                pathColor="oklch(1 0 0 / 8%)"
+                duration={4}
+                delay={1}
+              />
             </div>
-          </div>
+          </BlurFade>
 
           {/* Right: Terminal Tabs */}
-          <div>
-            <Tabs defaultValue="local">
-              <TabsList variant="line" className="mb-4">
-                <TabsTrigger value="local" className="gap-1.5">
-                  <TerminalIcon className="size-3.5" />
-                  {t("tabLocal")}
-                </TabsTrigger>
-                <TabsTrigger value="docker" className="gap-1.5">
-                  <BoxIcon className="size-3.5" />
-                  {t("tabDocker")}
-                </TabsTrigger>
-                <TabsTrigger value="railway" className="gap-1.5">
-                  <TrainTrackIcon className="size-3.5" />
-                  {t("tabRailway")}
-                </TabsTrigger>
-              </TabsList>
+          <BlurFade delay={0.2} inView>
+            <div>
+              <Tabs defaultValue="local">
+                <TabsList variant="line" className="mb-4">
+                  <TabsTrigger value="local" className="gap-1.5">
+                    <TerminalIcon className="size-3.5" />
+                    {t("tabLocal")}
+                  </TabsTrigger>
+                  <TabsTrigger value="docker" className="gap-1.5">
+                    <BoxIcon className="size-3.5" />
+                    {t("tabDocker")}
+                  </TabsTrigger>
+                  <TabsTrigger value="railway" className="gap-1.5">
+                    <TrainTrackIcon className="size-3.5" />
+                    {t("tabRailway")}
+                  </TabsTrigger>
+                </TabsList>
 
-              {(Object.keys(codeBlocks) as Array<keyof typeof codeBlocks>).map(
-                (tab) => (
+                {(
+                  Object.keys(codeBlocks) as Array<keyof typeof codeBlocks>
+                ).map((tab) => (
                   <TabsContent key={tab} value={tab}>
                     <div className="overflow-hidden rounded-xl border border-border/50 bg-zinc-950">
                       {/* Terminal header */}
@@ -149,10 +176,10 @@ export function QuickStart() {
                       </pre>
                     </div>
                   </TabsContent>
-                ),
-              )}
-            </Tabs>
-          </div>
+                ))}
+              </Tabs>
+            </div>
+          </BlurFade>
         </div>
       </Container>
     </Section>
