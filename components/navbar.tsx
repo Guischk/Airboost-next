@@ -32,27 +32,27 @@ export function Navbar() {
   return (
     <header
       data-slot="navbar"
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-200 ${
         scrolled || mobileOpen
-          ? "border-b border-border/60 bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80"
-          : "bg-transparent"
+          ? "border-b border-border/50 bg-background/80 backdrop-blur-xl"
+          : "bg-background/0"
       }`}
     >
-      <Container className="flex h-16 items-center justify-between">
+      <Container className="flex h-14 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 text-lg font-bold transition-opacity hover:opacity-90">
+        <Link href="/" className="flex items-center gap-2 text-base font-semibold transition-opacity hover:opacity-80">
           <Image
             src="/airboost_logo.svg"
             alt="Airboost Logo"
-            width={24}
-            height={24}
-            className="size-7"
+            width={20}
+            height={20}
+            className="size-6"
           />
           <span>Airboost</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
           <a
             href="#features"
             className="transition-colors hover:text-foreground"
@@ -69,7 +69,7 @@ export function Navbar() {
             href="https://github.com/Guischk/AirBoost"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 transition-colors hover:text-foreground"
+            className="flex items-center gap-1.5 transition-colors hover:text-foreground"
           >
             <GithubIcon className="size-4" />
             {t("github")}
@@ -77,8 +77,8 @@ export function Navbar() {
         </nav>
 
         {/* CTA + Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <Button size="sm" className="hidden font-semibold sm:inline-flex" asChild>
+        <div className="flex items-center gap-2">
+          <Button size="sm" className="hidden h-9 px-4 font-medium sm:inline-flex" asChild>
             <a
               href="https://railway.com/template/airboost?referralCode=3Ri9K9"
               target="_blank"
@@ -105,8 +105,8 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
-          <Container className="flex flex-col gap-4 py-6">
+        <div className="border-t border-border/50 bg-background/95 backdrop-blur-xl md:hidden">
+          <Container className="flex flex-col gap-3 py-5">
             <a
               href="#features"
               onClick={handleNavClick}
@@ -130,7 +130,7 @@ export function Navbar() {
               <GithubIcon className="size-4" />
               {t("github")}
             </a>
-            <Button size="sm" className="w-full" asChild>
+            <Button size="sm" className="mt-2 w-full" asChild>
               <a
                 href="https://railway.com/template/airboost?referralCode=3Ri9K9"
                 target="_blank"

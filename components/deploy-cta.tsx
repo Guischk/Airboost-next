@@ -14,18 +14,18 @@ export function DeployCTA() {
   const t = useTranslations("Deploy");
 
   return (
-    <Section id="deploy" className="relative pb-32">
+    <Section id="deploy" className="relative pb-24">
       <Container className="flex flex-col items-center text-center">
         <BlurFade inView>
-          <div className="relative flex w-full max-w-4xl flex-col items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-card/80 via-card/60 to-primary/5 p-16 shadow-2xl shadow-primary/5 backdrop-blur-sm md:p-20">
+          <div className="relative flex w-full max-w-4xl flex-col items-center overflow-hidden rounded-2xl border border-border bg-card/80 p-12 shadow-lg backdrop-blur-sm md:p-16">
             <BorderBeam
               size={250}
-              duration={10}
-              colorFrom="oklch(0.7 0.19 265)"
-              colorTo="oklch(0.75 0.15 230)"
+              duration={12}
+              colorFrom="oklch(0.72 0.19 264)"
+              colorTo="oklch(0.75 0.16 200)"
             />
             <DotPattern
-              className="fill-primary/10 stroke-primary/10 opacity-20 [mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
+              className="fill-primary/8 stroke-primary/8 opacity-30 [mask-image:radial-gradient(350px_circle_at_center,white,transparent)]"
               cr={0.5}
             />
 
@@ -36,26 +36,26 @@ export function DeployCTA() {
               <Paragraph
                 variant="muted"
                 size="lg"
-                className="mx-auto mt-6 max-w-2xl text-pretty leading-relaxed"
+                className="mx-auto mt-5 max-w-2xl text-balance leading-relaxed"
               >
                 {t("subtitle")}
               </Paragraph>
 
-              <div className="mt-12 flex flex-col items-center gap-4">
+              <div className="mt-10 flex flex-col items-center gap-3">
                 <a
                   href="https://railway.com/template/airboost?referralCode=3Ri9K9"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ShimmerButton className="h-16 px-12 shadow-2xl shadow-primary/20">
-                    <RocketIcon className="mr-2.5 size-5" />
-                    <span className="text-lg font-semibold tracking-tight text-white">
+                  <ShimmerButton className="h-12 px-8 shadow-xl shadow-primary/15">
+                    <RocketIcon className="mr-2 size-4" />
+                    <span className="text-base font-semibold text-white">
                       {t("cta")}
                     </span>
                   </ShimmerButton>
                 </a>
 
-                <p className="mt-3 text-sm font-semibold text-foreground">
+                <p className="mt-2 text-sm font-medium text-foreground">
                   {t("pricing")}
                 </p>
               </div>
@@ -63,12 +63,12 @@ export function DeployCTA() {
               <Paragraph
                 variant="muted"
                 size="sm"
-                className="mx-auto mt-8 max-w-lg text-pretty"
+                className="mx-auto mt-8 max-w-lg text-balance"
               >
                 {t("alternative")}
               </Paragraph>
 
-              <p className="mt-6 text-xs text-muted-foreground/50">
+              <p className="mt-5 text-xs text-muted-foreground/60">
                 {t("referralNote")}
               </p>
             </div>

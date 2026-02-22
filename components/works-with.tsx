@@ -42,29 +42,31 @@ export function WorksWith() {
     <Section spacing="sm">
       <Container>
         <BlurFade inView>
-          <p className="mb-8 text-center text-sm font-medium text-muted-foreground">
+          <p className="mb-10 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
             {t("title")}
           </p>
         </BlurFade>
 
-        {/* Code Frameworks — scrolling left */}
+        {/* Code Frameworks and No-code tools */}
         <BlurFade delay={0.1} inView>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent" />
-            <div className="flex  justify-center items-center gap-8">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+            <div className="flex items-center justify-center gap-10 opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0">
               {codeFrameworks.map(({ name }) => (
                 <img
+                  key={name}
                   src={codeFrameworkLogos[name]}
                   alt={name}
-                  className="size-12 md:size-16"
+                  className="size-10 md:size-12"
                 />
               ))}
               {nocodeTools.map(({ name }) => (
                 <img
+                  key={name}
                   src={nocodeToolLogos[name]}
                   alt={name}
-                  className="size-12 md:size-16"
+                  className="size-10 md:size-12"
                 />
               ))}
             </div>

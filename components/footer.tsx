@@ -33,12 +33,12 @@ export function Footer() {
     <Section spacing="sm" data-slot="footer">
       <Container>
         <BlurFade inView>
-          <Separator className="mb-8" />
+          <Separator className="mb-10" />
 
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-start">
+          <div className="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-start">
             {/* Brand */}
             <div className="flex flex-col items-center gap-2 sm:items-start">
-              <div className="flex items-center gap-2 font-bold">
+              <div className="flex items-center gap-2 text-base font-semibold">
                 <Image
                   src="/airboost_logo.svg"
                   alt="Airboost Logo"
@@ -48,17 +48,17 @@ export function Footer() {
                 />
                 <span>Airboost</span>
               </div>
-              <p className="text-sm text-muted-foreground">{t("tagline")}</p>
+              <p className="text-sm text-muted-foreground/80">{t("tagline")}</p>
             </div>
 
             {/* Links */}
-            <div className="flex flex-col items-center gap-1 sm:items-end">
-              <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <div className="flex flex-col items-center gap-2 sm:items-end">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
                 {t("resources")}
               </p>
               <Link
                 href="/how-it-works"
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm text-muted-foreground/90 transition-colors hover:text-foreground"
               >
                 {t("howItWorks")}
               </Link>
@@ -68,7 +68,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm text-muted-foreground/90 transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </a>
@@ -77,8 +77,8 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <Separator className="mt-8 mb-6" />
-          <p className="text-center text-xs text-muted-foreground">
+          <Separator className="mt-10 mb-8" />
+          <p className="text-center text-xs text-muted-foreground/70">
             {t("copyright")}
           </p>
         </BlurFade>
