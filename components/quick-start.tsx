@@ -19,7 +19,7 @@ cd AirBoost
 
 # Set your environment variables
 cp .env.example .env
-# Edit .env with your Airtable API key & base ID
+# Edit .env with your Airtable token & base ID
 
 # Start with Bun
 bun install && bun run start`,
@@ -27,15 +27,17 @@ bun install && bun run start`,
   docker: `# Pull and run with Docker
 docker run -d \\
   -p 3000:3000 \\
-  -e AIRTABLE_API_KEY=your_key \\
-  -e AIRTABLE_BASE_ID=your_base \\
+  -e AIRTABLE_PERSONAL_TOKEN=your_token \\
+  -e AIRTABLE_BASE_ID=your_base_id \\
+  -e BEARER_TOKEN=your_api_token \\
   ghcr.io/guischk/airboost:latest`,
 
   railway: `# One-click deploy on Railway
 # 1. Click "Deploy on Railway" button
 # 2. Set environment variables:
-#    AIRTABLE_API_KEY=your_key
-#    AIRTABLE_BASE_ID=your_base
+#    AIRTABLE_PERSONAL_TOKEN=your_token
+#    AIRTABLE_BASE_ID=your_base_id
+#    BEARER_TOKEN=your_api_token
 # 3. Done! Your instance is live.
 
 # Railway auto-configures HTTPS,
@@ -178,6 +180,22 @@ export function QuickStart() {
                   </TabsContent>
                 ))}
               </Tabs>
+
+              <div className="mt-4 rounded-xl border border-border/50 bg-card/40 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {t("requiredEnv")}
+                </p>
+                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
+                  AIRTABLE_PERSONAL_TOKEN · AIRTABLE_BASE_ID · BEARER_TOKEN
+                </p>
+
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {t("mainEndpoint")}
+                </p>
+                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
+                  GET /api/tables/:table
+                </p>
+              </div>
             </div>
           </BlurFade>
         </div>

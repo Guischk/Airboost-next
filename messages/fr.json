@@ -59,7 +59,9 @@
     "diagramSpeed": "Requêtes sub-ms",
     "tabLocal": "Local",
     "tabDocker": "Docker",
-    "tabRailway": "Railway"
+    "tabRailway": "Railway",
+    "requiredEnv": "Variables requises",
+    "mainEndpoint": "Endpoint principal"
   },
   "Deploy": {
     "title": "Prêt à décoller ?",

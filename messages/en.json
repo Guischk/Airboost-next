@@ -59,7 +59,9 @@
     "diagramSpeed": "Sub-ms queries",
     "tabLocal": "Local",
     "tabDocker": "Docker",
-    "tabRailway": "Railway"
+    "tabRailway": "Railway",
+    "requiredEnv": "Required env",
+    "mainEndpoint": "Main endpoint"
   },
   "Deploy": {
     "title": "Ready to fly?",
