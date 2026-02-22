@@ -29,17 +29,20 @@ export async function Hero() {
   const stars = await getGitHubStars();
 
   return (
-    <Section className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24">
-      {/* Multi-layer radial glow */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="pointer-events-none absolute top-0 left-[60%] -z-10 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-accent/6 blur-[100px]" />
+    <Section className="relative overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32">
+      {/* Enhanced multi-layer gradient background */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/2 h-[600px] w-[1000px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-primary/20 blur-[140px]" />
+        <div className="absolute top-1/4 left-1/3 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
+        <div className="absolute top-1/3 right-1/4 h-[400px] w-[600px] rounded-full bg-primary/15 blur-[100px]" />
+      </div>
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
         <BlurFade delay={0}>
           <Badge
             variant="outline"
-            className="border-border bg-white/10 text-sm text-muted-foreground"
+            className="border-primary/20 bg-primary/5 text-sm font-medium text-foreground backdrop-blur-sm"
           >
             {t("Hero.badge")}
           </Badge>
@@ -47,17 +50,19 @@ export async function Hero() {
 
         {/* Main Title */}
         <BlurFade delay={0.1} className="mt-8">
-          <Title header="h1" size="display" className="max-w-4xl">
+          <Title header="h1" size="display" className="max-w-5xl text-balance">
             {t("Hero.titleBefore")}{" "}
-            <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-              {t("Hero.titleHighlight")}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-br from-primary via-primary to-accent bg-clip-text text-transparent">
+                {t("Hero.titleHighlight")}
+              </span>
             </span>
           </Title>
         </BlurFade>
 
         {/* Description */}
         <BlurFade delay={0.2} className="mt-6">
-          <Paragraph size="lg" variant="muted" className="max-w-2xl">
+          <Paragraph size="lg" variant="muted" className="max-w-3xl text-pretty leading-relaxed">
             {t("Hero.description")}
           </Paragraph>
         </BlurFade>

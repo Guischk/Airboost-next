@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -11,7 +11,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
-const notoSans = Noto_Sans({ variable: "--font-sans" });
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 const SITE_URL = "https://airboost.dev";
 
@@ -73,8 +77,8 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`dark ${notoSans.variable}`}>
-      <body className="antialiased scroll-smooth">
+    <html lang={locale} className={`dark ${inter.variable}`}>
+      <body className="scroll-smooth antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Analytics />
       </body>

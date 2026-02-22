@@ -76,13 +76,13 @@ export function QuickStart() {
               {/* Airtable */}
               <div
                 ref={airtableRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+                className="flex w-full max-w-xs items-center justify-center rounded-2xl border border-border/60 bg-card/70 px-8 py-5 shadow-lg shadow-background/20 backdrop-blur-sm"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-base font-bold text-foreground">
                     Airtable
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {t("diagramSource")}
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export function QuickStart() {
               {/* Airboost */}
               <div
                 ref={airboostRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-primary/30 bg-primary/5 px-6 py-4"
+                className="flex w-full max-w-xs items-center justify-center rounded-2xl border border-primary/40 bg-gradient-to-br from-primary/15 to-primary/5 px-8 py-5 shadow-xl shadow-primary/20 backdrop-blur-sm ring-1 ring-primary/20"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-primary">Airboost</p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-base font-bold text-primary">Airboost</p>
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {t("diagramCache")}
                   </p>
                 </div>
@@ -104,13 +104,13 @@ export function QuickStart() {
               {/* Your App */}
               <div
                 ref={appRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+                className="flex w-full max-w-xs items-center justify-center rounded-2xl border border-border/60 bg-card/70 px-8 py-5 shadow-lg shadow-background/20 backdrop-blur-sm"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-base font-bold text-foreground">
                     {t("diagramApp")}
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {t("diagramSpeed")}
                   </p>
                 </div>
@@ -162,18 +162,18 @@ export function QuickStart() {
                   Object.keys(codeBlocks) as Array<keyof typeof codeBlocks>
                 ).map((tab) => (
                   <TabsContent key={tab} value={tab}>
-                    <div className="overflow-hidden rounded-xl border border-border/50 bg-zinc-950">
+                    <div className="overflow-hidden rounded-2xl border border-border/60 bg-zinc-950 shadow-xl">
                       {/* Terminal header */}
-                      <div className="flex items-center gap-2 border-b border-border/30 px-4 py-2.5">
-                        <div className="size-2.5 rounded-full bg-red-500/60" />
-                        <div className="size-2.5 rounded-full bg-yellow-500/60" />
-                        <div className="size-2.5 rounded-full bg-green-500/60" />
-                        <span className="ml-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-2 border-b border-border/30 bg-zinc-900/50 px-5 py-3">
+                        <div className="size-3 rounded-full bg-red-500/70" />
+                        <div className="size-3 rounded-full bg-yellow-500/70" />
+                        <div className="size-3 rounded-full bg-green-500/70" />
+                        <span className="ml-2 text-xs font-medium text-zinc-400">
                           terminal
                         </span>
                       </div>
                       {/* Code */}
-                      <pre className="overflow-x-auto p-4 text-xs leading-relaxed text-emerald-400/90 md:text-sm">
+                      <pre className="overflow-x-auto p-6 text-sm leading-relaxed text-emerald-400 md:text-base">
                         <code>{codeBlocks[tab]}</code>
                       </pre>
                     </div>
@@ -181,20 +181,24 @@ export function QuickStart() {
                 ))}
               </Tabs>
 
-              <div className="mt-4 rounded-xl border border-border/50 bg-card/40 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {t("requiredEnv")}
-                </p>
-                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
-                  AIRTABLE_PERSONAL_TOKEN · AIRTABLE_BASE_ID · BEARER_TOKEN
-                </p>
+              <div className="mt-6 space-y-6 rounded-2xl border border-border/60 bg-card/60 p-6 backdrop-blur-sm">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                    {t("requiredEnv")}
+                  </p>
+                  <p className="mt-3 font-mono text-sm text-foreground md:text-base">
+                    AIRTABLE_PERSONAL_TOKEN · AIRTABLE_BASE_ID · BEARER_TOKEN
+                  </p>
+                </div>
 
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  {t("mainEndpoint")}
-                </p>
-                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
-                  GET /api/tables/:table
-                </p>
+                <div className="border-t border-border/50 pt-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                    {t("mainEndpoint")}
+                  </p>
+                  <p className="mt-3 font-mono text-sm text-foreground md:text-base">
+                    GET /api/tables/:table
+                  </p>
+                </div>
               </div>
             </div>
           </BlurFade>

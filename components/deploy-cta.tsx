@@ -17,45 +17,45 @@ export function DeployCTA() {
     <Section id="deploy" className="relative pb-32">
       <Container className="flex flex-col items-center text-center">
         <BlurFade inView>
-          <div className="relative flex w-full max-w-3xl flex-col items-center overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-12 md:p-16">
+          <div className="relative flex w-full max-w-4xl flex-col items-center overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-card/80 via-card/60 to-primary/5 p-16 shadow-2xl shadow-primary/5 backdrop-blur-sm md:p-20">
             <BorderBeam
-              size={200}
+              size={250}
               duration={10}
-              colorFrom="oklch(0.62 0.22 265)"
-              colorTo="oklch(0.72 0.17 230)"
+              colorFrom="oklch(0.7 0.19 265)"
+              colorTo="oklch(0.75 0.15 230)"
             />
             <DotPattern
-              className="fill-muted-foreground/20 stroke-muted-foreground/20 opacity-15 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+              className="fill-primary/10 stroke-primary/10 opacity-20 [mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
               cr={0.5}
             />
 
             <div className="relative z-10 flex flex-col items-center">
-              <Title header="h2" size="2xl">
+              <Title header="h2" size="2xl" className="text-balance">
                 {t("title")}
               </Title>
               <Paragraph
                 variant="muted"
                 size="lg"
-                className="mx-auto mt-4 max-w-xl"
+                className="mx-auto mt-6 max-w-2xl text-pretty leading-relaxed"
               >
                 {t("subtitle")}
               </Paragraph>
 
-              <div className="mt-10 flex flex-col items-center gap-4">
+              <div className="mt-12 flex flex-col items-center gap-4">
                 <a
                   href="https://railway.com/template/airboost?referralCode=3Ri9K9"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ShimmerButton className="h-14 px-10 shadow-2xl">
-                    <RocketIcon className="mr-2 size-5" />
-                    <span className="text-base font-semibold tracking-tight text-white lg:text-lg">
+                  <ShimmerButton className="h-16 px-12 shadow-2xl shadow-primary/20">
+                    <RocketIcon className="mr-2.5 size-5" />
+                    <span className="text-lg font-semibold tracking-tight text-white">
                       {t("cta")}
                     </span>
                   </ShimmerButton>
                 </a>
 
-                <p className="mt-2 text-sm font-medium text-foreground">
+                <p className="mt-3 text-sm font-semibold text-foreground">
                   {t("pricing")}
                 </p>
               </div>
@@ -63,12 +63,12 @@ export function DeployCTA() {
               <Paragraph
                 variant="muted"
                 size="sm"
-                className="mx-auto mt-6 max-w-md"
+                className="mx-auto mt-8 max-w-lg text-pretty"
               >
                 {t("alternative")}
               </Paragraph>
 
-              <p className="mt-4 text-xs text-muted-foreground/60">
+              <p className="mt-6 text-xs text-muted-foreground/50">
                 {t("referralNote")}
               </p>
             </div>

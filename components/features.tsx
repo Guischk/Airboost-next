@@ -36,26 +36,26 @@ export function Features() {
         </BlurFade>
 
         {/* Feature Grid */}
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ key, icon: Icon }, idx) => (
             <BlurFade key={key} delay={0.1 * idx} inView>
-              <div className="w-full h-full rounded-2xl">
+              <div className="group h-full w-full rounded-2xl">
                 <MagicCard
-                  gradientSize={200}
-                  gradientColor="oklch(0.14 0.04 265)"
-                  gradientFrom="oklch(0.62 0.22 265)"
-                  gradientTo="oklch(0.72 0.17 230)"
-                  className="w-full h-full"
+                  gradientSize={250}
+                  gradientColor="oklch(0.11 0.015 265)"
+                  gradientFrom="oklch(0.7 0.19 265)"
+                  gradientTo="oklch(0.75 0.15 230)"
+                  className="h-full w-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
                 >
                   <div
                     data-slot="feature-card"
-                    className="flex flex-col gap-4 p-8"
+                    className="flex h-full flex-col gap-5 p-8"
                   >
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="size-6 text-primary" />
+                    <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 ring-1 ring-primary/20 transition-all group-hover:from-primary/30 group-hover:to-primary/10 group-hover:ring-primary/30">
+                      <Icon className="size-7 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-semibold text-foreground">
+                    <div className="flex-1">
+                      <h3 className="mb-3 text-xl font-semibold text-foreground">
                         {t(`${key}.name`)}
                       </h3>
                       <p className="text-sm leading-relaxed text-muted-foreground">
