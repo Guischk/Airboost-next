@@ -76,13 +76,13 @@ export function QuickStart() {
               {/* Airtable */}
               <div
                 ref={airtableRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+                className="border-border/50 bg-card/80 flex w-full max-w-xs items-center justify-center rounded-xl border px-6 py-4"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-foreground text-sm font-semibold">
                     Airtable
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-muted-foreground text-xs">
                     {t("diagramSource")}
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export function QuickStart() {
               {/* Airboost */}
               <div
                 ref={airboostRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-primary/30 bg-primary/5 px-6 py-4"
+                className="border-primary/30 bg-primary/5 flex w-full max-w-xs items-center justify-center rounded-xl border px-6 py-4"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-primary">Airboost</p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-primary text-sm font-semibold">Airboost</p>
+                  <p className="text-muted-foreground text-xs">
                     {t("diagramCache")}
                   </p>
                 </div>
@@ -104,13 +104,13 @@ export function QuickStart() {
               {/* Your App */}
               <div
                 ref={appRef}
-                className="flex w-full max-w-xs items-center justify-center rounded-xl border border-border/50 bg-card/80 px-6 py-4"
+                className="border-border/50 bg-card/80 flex w-full max-w-xs items-center justify-center rounded-xl border px-6 py-4"
               >
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-foreground text-sm font-semibold">
                     {t("diagramApp")}
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-muted-foreground text-xs">
                     {t("diagramSpeed")}
                   </p>
                 </div>
@@ -162,13 +162,13 @@ export function QuickStart() {
                   Object.keys(codeBlocks) as Array<keyof typeof codeBlocks>
                 ).map((tab) => (
                   <TabsContent key={tab} value={tab}>
-                    <div className="overflow-hidden rounded-xl border border-border/50 bg-zinc-950">
+                    <div className="border-border/50 overflow-hidden rounded-xl border bg-zinc-950">
                       {/* Terminal header */}
-                      <div className="flex items-center gap-2 border-b border-border/30 px-4 py-2.5">
+                      <div className="border-border/30 flex items-center gap-2 border-b px-4 py-2.5">
                         <div className="size-2.5 rounded-full bg-red-500/60" />
                         <div className="size-2.5 rounded-full bg-yellow-500/60" />
                         <div className="size-2.5 rounded-full bg-green-500/60" />
-                        <span className="ml-2 text-xs text-muted-foreground">
+                        <span className="text-muted-foreground ml-2 text-xs">
                           terminal
                         </span>
                       </div>
@@ -181,18 +181,18 @@ export function QuickStart() {
                 ))}
               </Tabs>
 
-              <div className="mt-4 rounded-xl border border-border/50 bg-card/40 p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <div className="border-border/50 bg-card/40 mt-4 rounded-xl border p-4">
+                <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
                   {t("requiredEnv")}
                 </p>
-                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
+                <p className="text-foreground/90 mt-2 font-mono text-xs md:text-sm">
                   AIRTABLE_PERSONAL_TOKEN · AIRTABLE_BASE_ID · BEARER_TOKEN
                 </p>
 
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <p className="text-muted-foreground mt-4 text-xs font-semibold tracking-wide uppercase">
                   {t("mainEndpoint")}
                 </p>
-                <p className="mt-2 font-mono text-xs text-foreground/90 md:text-sm">
+                <p className="text-foreground/90 mt-2 font-mono text-xs md:text-sm">
                   GET /api/tables/:table
                 </p>
               </div>

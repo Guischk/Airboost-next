@@ -49,14 +49,14 @@ export function HiwSyncModes() {
                     data-slot="sync-mode-card"
                     className="flex h-full flex-col gap-4 p-8"
                   >
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="size-6 text-primary" />
+                    <div className="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+                      <Icon className="text-primary size-6" />
                     </div>
                     <div className="flex flex-1 flex-col">
-                      <h3 className="mb-2 text-lg font-semibold text-foreground">
+                      <h3 className="text-foreground mb-2 text-lg font-semibold">
                         {t(`${key}Name`)}
                       </h3>
-                      <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      <p className="text-muted-foreground mb-4 flex-1 text-sm leading-relaxed">
                         {t(`${key}Description`)}
                       </p>
                       <Badge

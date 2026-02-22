@@ -43,16 +43,16 @@ export function HiwUseCases() {
             <BlurFade key={key} delay={0.1 * idx} inView>
               <div
                 data-slot="use-case-card"
-                className="flex gap-5 rounded-2xl border border-border/50 bg-card/30 p-6 transition-colors hover:border-border/80 hover:bg-card/50"
+                className="border-border/50 bg-card/30 hover:border-border/80 hover:bg-card/50 flex gap-5 rounded-2xl border p-6 transition-colors"
               >
-                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                  <Icon className="size-5 text-primary" />
+                <div className="bg-primary/10 flex size-11 shrink-0 items-center justify-center rounded-xl">
+                  <Icon className="text-primary size-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-foreground">
+                  <h3 className="text-foreground text-base font-semibold">
                     {t(`${key}Name`)}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
                     {t(`${key}Description`)}
                   </p>
                 </div>

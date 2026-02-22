@@ -14,7 +14,8 @@
     "features": "Features",
     "howItWorks": "How it works",
     "github": "GitHub",
-    "deployNow": "Deploy Now"
+    "deployNow": "Deploy Now",
+    "language": "Language"
   },
   "Hero": {
     "badge": "Open Source · MIT License",

@@ -18,16 +18,16 @@ export function HeroPerfCards() {
           {/* Airtable Card */}
           <div
             data-slot="perf-card"
-            className="flex flex-col items-center rounded-2xl border border-border/50 bg-card/50 p-6 text-center"
+            className="border-border/50 bg-card/50 flex flex-col items-center rounded-2xl border p-6 text-center"
           >
-            <p className="text-xs font-medium text-muted-foreground">
+            <p className="text-muted-foreground text-xs font-medium">
               {t("airtableLabel")}
             </p>
-            <p className="mt-2 text-3xl font-bold tabular-nums text-foreground md:text-4xl">
+            <p className="text-foreground mt-2 text-3xl font-bold tabular-nums md:text-4xl">
               ~<NumberTicker value={270} delay={0.8} />
               ms
             </p>
-            <p className="mt-1 text-xs text-muted-foreground">
+            <p className="text-muted-foreground mt-1 text-xs">
               {t("responseTime")}
             </p>
           </div>
@@ -35,7 +35,7 @@ export function HeroPerfCards() {
           {/* Airboost Card */}
           <div
             data-slot="perf-card"
-            className="relative flex flex-col items-center overflow-hidden rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center"
+            className="border-primary/30 bg-primary/5 relative flex flex-col items-center overflow-hidden rounded-2xl border p-6 text-center"
           >
             <BorderBeam
               size={120}
@@ -43,12 +43,12 @@ export function HeroPerfCards() {
               colorFrom="oklch(0.62 0.22 265)"
               colorTo="oklch(0.72 0.17 230)"
             />
-            <p className="text-xs font-medium text-primary">Airboost</p>
-            <p className="mt-2 text-3xl font-bold tabular-nums text-foreground md:text-4xl">
+            <p className="text-primary text-xs font-medium">Airboost</p>
+            <p className="text-foreground mt-2 text-3xl font-bold tabular-nums md:text-4xl">
               ~<NumberTicker value={1} delay={0.8} />
               ms
             </p>
-            <p className="mt-1 text-xs text-muted-foreground">
+            <p className="text-muted-foreground mt-1 text-xs">
               {t("responseTime")}
             </p>
           </div>
@@ -56,7 +56,7 @@ export function HeroPerfCards() {
       </BlurFade>
 
       <BlurFade delay={0.6} className="mt-4">
-        <Badge className="bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">
+        <Badge className="bg-primary/10 text-primary px-4 py-1.5 text-sm font-bold">
           {t("fasterBadge")}
         </Badge>
       </BlurFade>
@@ -67,17 +67,17 @@ export function HeroPerfCards() {
           {/* Rate limits */}
           <div
             data-slot="perf-stat"
-            className="flex flex-col items-center rounded-xl border border-border/40 bg-card/30 px-4 py-3 text-center"
+            className="border-border/40 bg-card/30 flex flex-col items-center rounded-xl border px-4 py-3 text-center"
           >
-            <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+            <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
               {t("rateLimitLabel")}
             </p>
             <div className="mt-1.5 flex items-center gap-2">
-              <span className="text-sm font-medium text-muted-foreground line-through decoration-destructive/60">
+              <span className="text-muted-foreground decoration-destructive/60 text-sm font-medium line-through">
                 {t("rateLimitAirtable")}
               </span>
-              <span className="text-xs text-muted-foreground/50">&rarr;</span>
-              <span className="text-sm font-bold text-primary">
+              <span className="text-muted-foreground/50 text-xs">&rarr;</span>
+              <span className="text-primary text-sm font-bold">
                 {t("rateLimitAirboost")}
               </span>
             </div>
@@ -86,17 +86,17 @@ export function HeroPerfCards() {
           {/* Availability */}
           <div
             data-slot="perf-stat"
-            className="flex flex-col items-center rounded-xl border border-border/40 bg-card/30 px-4 py-3 text-center"
+            className="border-border/40 bg-card/30 flex flex-col items-center rounded-xl border px-4 py-3 text-center"
           >
-            <p className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+            <p className="text-muted-foreground text-[10px] font-medium tracking-wider uppercase">
               {t("quotaLabel")}
             </p>
             <div className="mt-1.5 flex items-center gap-2">
-              <span className="text-sm font-medium text-muted-foreground line-through decoration-destructive/60">
+              <span className="text-muted-foreground decoration-destructive/60 text-sm font-medium line-through">
                 {t("quotaAirtable")}
               </span>
-              <span className="text-xs text-muted-foreground/50">&rarr;</span>
-              <span className="text-sm font-bold text-primary">
+              <span className="text-muted-foreground/50 text-xs">&rarr;</span>
+              <span className="text-primary text-sm font-bold">
                 {t("quotaAirboost")}
               </span>
             </div>

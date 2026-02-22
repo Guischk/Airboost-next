@@ -74,7 +74,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`dark ${notoSans.variable}`}>
-      <body className="antialiased scroll-smooth">
+      <body className="scroll-smooth antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Analytics />
       </body>

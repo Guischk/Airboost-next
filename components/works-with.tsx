@@ -3,7 +3,8 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { Marquee } from "@/components/ui/marquee";
+
+import Image from "next/image";
 
 const codeFrameworkLogos: Record<string, string> = {
   "Next.js": "/logos/nextjs.svg",
@@ -42,7 +43,7 @@ export function WorksWith() {
     <Section spacing="sm">
       <Container>
         <BlurFade inView>
-          <p className="mb-8 text-center text-sm font-medium text-muted-foreground">
+          <p className="text-muted-foreground mb-8 text-center text-sm font-medium">
             {t("title")}
           </p>
         </BlurFade>
@@ -50,18 +51,20 @@ export function WorksWith() {
         {/* Code Frameworks — scrolling left */}
         <BlurFade delay={0.1} inView>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent" />
-            <div className="flex  justify-center items-center gap-8">
+            <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r to-transparent" />
+            <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l to-transparent" />
+            <div className="flex items-center justify-center gap-8">
               {codeFrameworks.map(({ name }) => (
-                <img
+                <Image
+                  key={name}
                   src={codeFrameworkLogos[name]}
                   alt={name}
                   className="size-12 md:size-16"
                 />
               ))}
               {nocodeTools.map(({ name }) => (
-                <img
+                <Image
+                  key={name}
                   src={nocodeToolLogos[name]}
                   alt={name}
                   className="size-12 md:size-16"

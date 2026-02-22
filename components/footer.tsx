@@ -25,7 +25,7 @@ export function Footer() {
     },
     {
       label: t("railway"),
-      href: "https://railway.com/template/airboost?referralCode=3Ri9K9",
+      href: "https://railway.com/deploy/aircache?referralCode=3Ri9K9",
     },
   ];
 
@@ -48,17 +48,17 @@ export function Footer() {
                 />
                 <span>Airboost</span>
               </div>
-              <p className="text-sm text-muted-foreground">{t("tagline")}</p>
+              <p className="text-muted-foreground text-sm">{t("tagline")}</p>
             </div>
 
             {/* Links */}
             <div className="flex flex-col items-center gap-1 sm:items-end">
-              <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <p className="text-muted-foreground mb-1 text-xs font-medium tracking-wider uppercase">
                 {t("resources")}
               </p>
               <Link
                 href="/how-it-works"
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
               >
                 {t("howItWorks")}
               </Link>
@@ -68,7 +68,7 @@ export function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground text-sm transition-colors"
                 >
                   {link.label}
                 </a>
@@ -78,7 +78,7 @@ export function Footer() {
 
           {/* Copyright */}
           <Separator className="mt-8 mb-6" />
-          <p className="text-center text-xs text-muted-foreground">
+          <p className="text-muted-foreground text-center text-xs">
             {t("copyright")}
           </p>
         </BlurFade>

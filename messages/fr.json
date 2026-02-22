@@ -14,13 +14,14 @@
     "features": "Fonctionnalités",
     "howItWorks": "Comment ça marche",
     "github": "GitHub",
-    "deployNow": "Déployer"
+    "deployNow": "Déployer",
+    "language": "Langue"
   },
   "Hero": {
     "badge": "Open Source · Licence MIT",
-    "titleBefore": "Votre Airtable,",
-    "titleHighlight": "240x plus rapide",
-    "description": "Oubliez les quotas et la latence d'Airtable. Airboost met en cache vos données dans SQLite pour des requêtes sub-milliseconde, un débit illimité et zéro interruption.",
+    "titleBefore": "Faites de Airtable,",
+    "titleHighlight": "votre backend de production",
+    "description": "Airtable est parfait pour gérer des données, mais pas pour les utiliser à grande échelle. Airboost ajoute un cache SQLite haute performance qui élimine les limites de débit, réduit la latence et rend votre base Airtable prête pour la production.",
     "ctaDeploy": "Déployer sur Railway",
     "ctaGithub": "Star sur GitHub",
     "airtableLabel": "API Airtable",

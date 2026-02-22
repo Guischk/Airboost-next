@@ -1,5 +1,12 @@
 import { useTranslations } from "next-intl";
-import { ZapIcon, RefreshCwIcon, ServerIcon, RadioIcon, PaperclipIcon, CodeIcon } from "lucide-react";
+import {
+  ZapIcon,
+  RefreshCwIcon,
+  ServerIcon,
+  RadioIcon,
+  PaperclipIcon,
+  CodeIcon,
+} from "lucide-react";
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
@@ -39,26 +46,26 @@ export function Features() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map(({ key, icon: Icon }, idx) => (
             <BlurFade key={key} delay={0.1 * idx} inView>
-              <div className="w-full h-full rounded-2xl">
+              <div className="h-full w-full rounded-2xl">
                 <MagicCard
                   gradientSize={200}
                   gradientColor="oklch(0.14 0.04 265)"
                   gradientFrom="oklch(0.62 0.22 265)"
                   gradientTo="oklch(0.72 0.17 230)"
-                  className="w-full h-full"
+                  className="h-full w-full"
                 >
                   <div
                     data-slot="feature-card"
                     className="flex flex-col gap-4 p-8"
                   >
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="size-6 text-primary" />
+                    <div className="bg-primary/10 flex size-12 shrink-0 items-center justify-center rounded-xl">
+                      <Icon className="text-primary size-6" />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-lg font-semibold text-foreground">
+                      <h3 className="text-foreground mb-2 text-lg font-semibold">
                         {t(`${key}.name`)}
                       </h3>
-                      <p className="text-sm leading-relaxed text-muted-foreground">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
                         {t(`${key}.description`)}
                       </p>
                     </div>

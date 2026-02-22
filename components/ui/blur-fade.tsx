@@ -10,8 +10,6 @@ import {
   Variants,
 } from "motion/react";
 
-import { cn } from "@/lib/utils";
-
 type MarginType = UseInViewOptions["margin"];
 
 interface BlurFadeProps extends MotionProps {

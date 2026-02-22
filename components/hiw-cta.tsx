@@ -18,7 +18,7 @@ export function HiwCta() {
     <Section className="pb-32">
       <Container className="flex flex-col items-center text-center">
         <BlurFade inView>
-          <div className="relative flex w-full max-w-3xl flex-col items-center overflow-hidden rounded-3xl border border-border/50 bg-card/50 p-12 md:p-16">
+          <div className="border-border/50 bg-card/50 relative flex w-full max-w-3xl flex-col items-center overflow-hidden rounded-3xl border p-12 md:p-16">
             <BorderBeam
               size={200}
               duration={10}
@@ -26,7 +26,7 @@ export function HiwCta() {
               colorTo="oklch(0.72 0.17 230)"
             />
             <DotPattern
-              className="fill-muted-foreground/20 stroke-muted-foreground/20 opacity-15 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+              className="fill-muted-foreground/20 stroke-muted-foreground/20 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)] opacity-15"
               cr={0.5}
             />
 
@@ -44,7 +44,7 @@ export function HiwCta() {
 
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                 <a
-                  href="https://railway.com/template/airboost?referralCode=3Ri9K9"
+                  href="https://railway.com/deploy/aircache?referralCode=3Ri9K9"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

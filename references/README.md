@@ -4,7 +4,7 @@
 
 **High-performance SQLite cache for Airtable**
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/airboost?referralCode=3Ri9K9)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/aircache?referralCode=3Ri9K9)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Bun](https://img.shields.io/badge/Bun-1.0+-black.svg)](https://bun.sh)
 
@@ -19,17 +19,18 @@
 ## Why Airboost?
 
 Airtable is great for managing data, but its API has limitations:
+
 - **Rate limits**: 5 requests/second max
 - **Latency**: 200-500ms per request
 - **Quotas**: Limited by pricing plan
 
 Airboost solves this by caching your Airtable data locally in SQLite, giving you:
 
-| Metric | Direct Airtable | With Airboost | Improvement |
-|--------|-----------------|---------------|-------------|
-| Avg response | 270ms | **1-3ms** | **240x faster** |
-| Rate limits | 5 req/s | **Unlimited** | No throttling |
-| Availability | Dependent | **100%** | Always available |
+| Metric       | Direct Airtable | With Airboost | Improvement      |
+| ------------ | --------------- | ------------- | ---------------- |
+| Avg response | 270ms           | **1-3ms**     | **240x faster**  |
+| Rate limits  | 5 req/s         | **Unlimited** | No throttling    |
+| Availability | Dependent       | **100%**      | Always available |
 
 ## Features
 
@@ -45,7 +46,7 @@ Airboost solves this by caching your Airtable data locally in SQLite, giving you
 
 ### Option 1: Deploy to Railway (Recommended)
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/airboost?referralCode=3Ri9K9)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/aircache?referralCode=3Ri9K9)
 
 1. Click the deploy button
 2. Add your Airtable credentials
@@ -94,11 +95,11 @@ BEARER_TOKEN=your_secure_api_token        # API authentication
 
 Airboost supports three synchronization modes:
 
-| Mode | Description | Best For |
-|------|-------------|----------|
-| `polling` | Regular full refresh at interval | Most use cases (default) |
+| Mode      | Description                             | Best For                 |
+| --------- | --------------------------------------- | ------------------------ |
+| `polling` | Regular full refresh at interval        | Most use cases (default) |
 | `webhook` | Real-time updates via Airtable webhooks | Low-latency requirements |
-| `manual` | Only refresh via API call | Full control |
+| `manual`  | Only refresh via API call               | Full control             |
 
 ```bash
 SYNC_MODE=polling              # polling | webhook | manual
@@ -120,33 +121,33 @@ All endpoints require Bearer token authentication (except `/health`).
 
 ### Core Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/health` | GET | Health check (no auth required) |
-| `/api/tables` | GET | List all cached tables |
-| `/api/tables/:table` | GET | Get records from a table |
-| `/api/tables/:table/:id` | GET | Get a specific record |
-| `/api/stats` | GET | Cache statistics |
-| `/api/refresh` | POST | Trigger manual cache refresh |
+| Endpoint                 | Method | Description                     |
+| ------------------------ | ------ | ------------------------------- |
+| `/health`                | GET    | Health check (no auth required) |
+| `/api/tables`            | GET    | List all cached tables          |
+| `/api/tables/:table`     | GET    | Get records from a table        |
+| `/api/tables/:table/:id` | GET    | Get a specific record           |
+| `/api/stats`             | GET    | Cache statistics                |
+| `/api/refresh`           | POST   | Trigger manual cache refresh    |
 
 ### Advanced Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/types` | GET | Auto-generated TypeScript types (`?format=json` for JSON) |
-| `/api/mappings` | GET | List all table name mappings |
-| `/api/mappings/:identifier` | GET | Get a specific mapping by ID or name |
-| `/api/attachments/:table` | GET | List attachments for a table |
-| `/api/attachments/:table/:record` | GET | List attachments for a record |
-| `/api/attachments/:table/:record/:field` | GET | List attachments for a field |
-| `/api/attachments/:table/:record/:field/:filename` | GET | Download a cached attachment |
-| `/api/attachments/by-id/:id` | GET | Get attachment metadata by ID |
+| Endpoint                                           | Method | Description                                               |
+| -------------------------------------------------- | ------ | --------------------------------------------------------- |
+| `/api/types`                                       | GET    | Auto-generated TypeScript types (`?format=json` for JSON) |
+| `/api/mappings`                                    | GET    | List all table name mappings                              |
+| `/api/mappings/:identifier`                        | GET    | Get a specific mapping by ID or name                      |
+| `/api/attachments/:table`                          | GET    | List attachments for a table                              |
+| `/api/attachments/:table/:record`                  | GET    | List attachments for a record                             |
+| `/api/attachments/:table/:record/:field`           | GET    | List attachments for a field                              |
+| `/api/attachments/:table/:record/:field/:filename` | GET    | Download a cached attachment                              |
+| `/api/attachments/by-id/:id`                       | GET    | Get attachment metadata by ID                             |
 
 ### Webhooks
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/webhooks/airtable/refresh` | POST | Receive Airtable webhook notifications (HMAC-validated) |
+| Endpoint                     | Method | Description                                             |
+| ---------------------------- | ------ | ------------------------------------------------------- |
+| `/webhooks/airtable/refresh` | POST   | Receive Airtable webhook notifications (HMAC-validated) |
 
 ### Query Parameters
 
@@ -187,6 +188,7 @@ Airboost uses a **dual-database strategy** for zero-downtime updates:
 ```
 
 **Benefits:**
+
 - No downtime during cache refresh
 - Atomic database switching
 - Consistent data at all times
@@ -205,7 +207,7 @@ Airboost uses a **dual-database strategy** for zero-downtime updates:
 
 One-click deployment with automatic SSL and scaling:
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/airboost?referralCode=3Ri9K9)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/aircache?referralCode=3Ri9K9)
 
 **Cost:** ~$2-5/month for typical usage
 
@@ -224,16 +226,17 @@ See [Deployment Guide](docs/deployment/production.md) for detailed instructions.
 
 Benchmarks from a real production deployment (19 tables, 4 scenarios each):
 
-| Scenario | SQLite | Airtable | Improvement |
-|----------|--------|----------|-------------|
-| Single record | 0.5ms | 288ms | **540x faster** |
-| Small batch (10) | 2.2ms | 272ms | **124x faster** |
-| Medium batch (50) | 2.3ms | 302ms | **129x faster** |
-| Full table scan | 1.1ms | 296ms | **278x faster** |
+| Scenario          | SQLite | Airtable | Improvement     |
+| ----------------- | ------ | -------- | --------------- |
+| Single record     | 0.5ms  | 288ms    | **540x faster** |
+| Small batch (10)  | 2.2ms  | 272ms    | **124x faster** |
+| Medium batch (50) | 2.3ms  | 302ms    | **129x faster** |
+| Full table scan   | 1.1ms  | 296ms    | **278x faster** |
 
 **Average improvement: 242x faster with 99.4% latency reduction**
 
 Run your own benchmarks:
+
 ```bash
 bun run benchmark
 ```
