@@ -28,7 +28,7 @@ export function Footer() {
   ];
 
   return (
-    <Section spacing="sm" data-slot="footer" className="relative">
+    <Section spacing="sm" data-slot="footer">
       <Container>
         <Separator className="mb-8" />
 

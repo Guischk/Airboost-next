@@ -6,18 +6,52 @@ import { Analytics } from "@vercel/analytics/react";
 
 import { hasLocale } from "next-intl";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
 const notoSans = Noto_Sans({ variable: "--font-sans" });
 
-export const metadata: Metadata = {
-  title: "Airboost — High-Performance SQLite Cache for Airtable",
-  description:
-    "240x faster queries, zero-downtime updates, and real-time webhooks. Open-source SQLite cache that turns your Airtable into a blazing-fast, always-available API.",
-};
+const SITE_URL = "https://airboost.dev";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: t("title"),
+    description: t("description"),
+    icons: {
+      icon: "/airboost_favicon.svg",
+    },
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: locale === "en" ? SITE_URL : `${SITE_URL}/fr`,
+      siteName: "Airboost",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+    },
+    alternates: {
+      canonical: locale === "en" ? SITE_URL : `${SITE_URL}/fr`,
+      languages: {
+        en: SITE_URL,
+        fr: `${SITE_URL}/fr`,
+      },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -1,68 +1,51 @@
-import { useTranslations } from "next-intl";
-import {
-  ArrowRightIcon,
-  DatabaseIcon,
-  GithubIcon,
-  RocketIcon,
-  ServerIcon,
-  ShieldCheckIcon,
-  ZapIcon,
-} from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { GithubIcon, RocketIcon, StarIcon } from "lucide-react";
 
 import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
 import { Title } from "@/components/base/title";
 import { Paragraph } from "@/components/base/paragraph";
 import { Button } from "@/components/ui/button";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
-import { AuroraText } from "@/components/ui/aurora-text";
-import { ShimmerButton } from "@/components/ui/shimmer-button";
-import { Particles } from "@/components/ui/particles";
 import { Badge } from "@/components/ui/badge";
-import { ArchitectureBeam } from "@/components/architecture-beam";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
-const featurePills = [
-  { key: "subMs", icon: ZapIcon },
-  { key: "zeroDowntime", icon: DatabaseIcon },
-  { key: "selfHosted", icon: ServerIcon },
-  { key: "openSource", icon: ShieldCheckIcon },
-] as const;
+async function getGitHubStars(): Promise<number | null> {
+  try {
+    const res = await fetch("https://api.github.com/repos/Guischk/AirBoost", {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { stargazers_count: number };
+    return data.stargazers_count;
+  } catch {
+    return null;
+  }
+}
 
-export function Hero() {
-  const t = useTranslations();
+export async function Hero() {
+  const t = await getTranslations();
+  const stars = await getGitHubStars();
 
   return (
-    <Section className="relative overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32">
-      {/* Background Particles */}
-      <Particles
-        className="absolute inset-0 -z-10"
-        quantity={60}
-        ease={80}
-        color="#6366f1"
-        refresh
-      />
-
-      {/* Radial glow */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-125 w-200 -translate-x-1/2 rounded-full bg-primary/6 blur-3xl" />
+    <Section className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24">
+      {/* Subtle radial glow */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -z-10 h-125 w-200 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
 
       <Container className="relative z-10 flex flex-col items-center text-center">
         {/* Badge */}
-        <div className="mb-8 flex justify-center">
-          <div className="group rounded-full border border-white/10 bg-white/5 text-base transition-all ease-in hover:cursor-pointer hover:bg-white/10">
-            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 text-sm transition ease-out hover:duration-300">
-              <span>{t("Hero.badge")}</span>
-              <ArrowRightIcon className="ml-1.5 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-            </AnimatedShinyText>
-          </div>
-        </div>
+        <Badge
+          variant="outline"
+          className="mb-8 gap-2 border-border/60 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground"
+        >
+          {t("Hero.badge")}
+        </Badge>
 
         {/* Main Title */}
-        <Title header="h1" size="xl" className="max-w-5xl">
-          {t("Hero.titleBefore")}
-          <br className="sm:hidden" />{" "}
-          <AuroraText colors={["#38bdf8", "#818cf8", "#c084fc"]}>
+        <Title header="h1" size="xl" className="max-w-4xl">
+          {t("Hero.titleBefore")}{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-primary to-purple-400 bg-clip-text text-transparent">
             {t("Hero.titleHighlight")}
-          </AuroraText>
+          </span>
         </Title>
 
         {/* Description */}
@@ -97,35 +80,53 @@ export function Hero() {
             >
               <GithubIcon className="size-4" />
               {t("Hero.ctaGithub")}
+              {stars !== null && (
+                <span className="ml-1 inline-flex items-center gap-1 text-muted-foreground">
+                  <StarIcon className="size-3 fill-yellow-500 text-yellow-500" />
+                  {stars}
+                </span>
+              )}
             </a>
           </Button>
         </div>
 
-        {/* Social Proof */}
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <p className="text-xs text-muted-foreground">
-            {t("Hero.socialProof")}
-          </p>
+        {/* Inline Performance Comparison */}
+        <div className="mt-16 grid w-full max-w-xl grid-cols-2 gap-4">
+          {/* Airtable Card */}
+          <div
+            data-slot="perf-card"
+            className="flex flex-col items-center rounded-2xl border border-border/50 bg-card/50 p-6 text-center"
+          >
+            <p className="text-xs font-medium text-muted-foreground">
+              {t("Hero.airtableLabel")}
+            </p>
+            <p className="mt-2 text-3xl font-bold tabular-nums text-foreground md:text-4xl">
+              ~270ms
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {t("Hero.responseTime")}
+            </p>
+          </div>
+
+          {/* Airboost Card */}
+          <div
+            data-slot="perf-card"
+            className="relative flex flex-col items-center rounded-2xl border border-primary/30 bg-primary/5 p-6 text-center"
+          >
+            <p className="text-xs font-medium text-primary">Airboost</p>
+            <p className="mt-2 text-3xl font-bold tabular-nums text-foreground md:text-4xl">
+              ~1ms
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              {t("Hero.responseTime")}
+            </p>
+          </div>
         </div>
 
-        {/* Architecture Beam Component */}
-        <div className="mt-16 w-full max-w-3xl px-4">
-          <ArchitectureBeam />
-        </div>
-
-        {/* Feature Pills */}
-        <div className="mt-16 flex flex-wrap justify-center gap-3">
-          {featurePills.map(({ key, icon: Icon }) => (
-            <Badge
-              key={key}
-              variant="outline"
-              className="gap-1.5 border-border/60 bg-white/5 px-3 py-1 text-xs text-muted-foreground"
-            >
-              <Icon className="size-3 text-primary" />
-              {t(`Project.features.${key}`)}
-            </Badge>
-          ))}
-        </div>
+        {/* 240x Badge */}
+        <Badge className="mt-4 bg-primary/10 px-4 py-1.5 text-sm font-bold text-primary">
+          {t("Hero.fasterBadge")}
+        </Badge>
       </Container>
     </Section>
   );

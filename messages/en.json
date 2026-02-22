@@ -2,63 +2,72 @@
   "Project": {
     "name": "Airboost",
     "description": "High-performance SQLite cache that turns your Airtable into a blazing-fast, always-available API.",
-    "tagline": "Your Airtable, 240× Faster",
-    "features": {
-      "subMs": "Sub-ms queries",
-      "zeroDowntime": "Zero downtime",
-      "selfHosted": "Self-hosted",
-      "openSource": "MIT License"
-    }
+    "tagline": "Your Airtable, 240x Faster"
+  },
+  "Metadata": {
+    "title": "Airboost — High-Performance SQLite Cache for Airtable",
+    "description": "240x faster queries, zero-downtime updates, and real-time webhooks. Open-source SQLite cache that turns your Airtable into a blazing-fast, always-available API. Works with Next.js, Nuxt, Remix, WeWeb, Webflow, and more.",
+    "ogTitle": "Airboost — Your Airtable, 240x Faster",
+    "ogDescription": "Open-source SQLite caching proxy for Airtable. Sub-millisecond queries, zero downtime, real-time sync. Deploy in 60 seconds."
   },
   "Navbar": {
     "features": "Features",
-    "deploy": "Deploy",
     "github": "GitHub",
     "deployNow": "Deploy Now"
   },
   "Hero": {
     "badge": "Open Source · MIT License",
-    "titleBefore": "Make Airtable a",
-    "titleHighlight": "Production-Ready Backend",
-    "description": "Stop worrying about Airtable's rate limits and latency. Airboost sits between your app and Airtable, caching your data in SQLite for sub-millisecond queries, unlimited throughput, and zero downtime.",
+    "titleBefore": "Your Airtable,",
+    "titleHighlight": "240x Faster",
+    "description": "Stop worrying about Airtable's rate limits and latency. Airboost caches your data in SQLite for sub-millisecond queries, unlimited throughput, and zero downtime.",
     "ctaDeploy": "Deploy on Railway",
-    "ctaGithub": "View on GitHub",
-    "socialProof": "Join developers building faster, more resilient apps on top of Airtable."
+    "ctaGithub": "Star on GitHub",
+    "airtableLabel": "Airtable API",
+    "responseTime": "Avg. response time",
+    "fasterBadge": "240x Faster"
+  },
+  "WorksWith": {
+    "title": "Works with any frontend — code or no-code",
+    "nocode": "no-code"
   },
   "Features": {
     "title": "Everything you need",
     "subtitle": "Built for developers who love Airtable's flexibility but need production-grade performance.",
     "blazingFast": {
-      "name": "Blazing Fast",
+      "name": "Sub-ms Queries",
       "description": "Sub-millisecond queries powered by SQLite. Your data served instantly, no more waiting for the Airtable API."
     },
     "zeroDowntime": {
       "name": "Zero Downtime",
       "description": "Atomic dual-database swap strategy ensures your API never goes down, even during cache refreshes."
     },
-    "typeSafety": {
-      "name": "Type Safety",
-      "description": "Full TypeScript support with auto-generated types based on your actual Airtable schema."
-    },
     "selfHosted": {
       "name": "Self-Hosted",
-      "description": "Your data stays on your infrastructure. Deploy anywhere Bun runs — Railway, Fly.io, or any VPS."
-    },
-    "attachments": {
-      "name": "Attachment Handling",
-      "description": "Automatic file downloading and local serving. No more expired Airtable attachment URLs."
+      "description": "Your data stays on your infrastructure. Deploy anywhere Bun runs — Railway, Fly.io, Docker, or any VPS."
     },
     "realTimeSync": {
       "name": "Real-time Sync",
       "description": "Webhook support for instant updates when your data changes in Airtable."
     }
   },
+  "QuickStart": {
+    "title": "Get started in seconds",
+    "subtitle": "Works with your existing Airtable data — no migration needed.",
+    "diagramSource": "Your data source",
+    "diagramCache": "SQLite cache proxy",
+    "diagramApp": "Your App",
+    "diagramSpeed": "Sub-ms queries",
+    "tabLocal": "Local",
+    "tabDocker": "Docker",
+    "tabRailway": "Railway"
+  },
   "Deploy": {
-    "title": "Ready to deploy?",
+    "title": "Ready to fly?",
     "subtitle": "Get your own instance running in 60 seconds. One-click deploy with automatic HTTPS and zero-downtime deployments.",
     "cta": "Deploy on Railway",
     "pricing": "~$2–5/month · Free $5 credit included",
-    "alternative": "Or self-host anywhere Bun runs — Fly.io, Render, DigitalOcean, any VPS."
+    "alternative": "Or self-host anywhere Bun runs — Fly.io, Render, DigitalOcean, any VPS.",
+    "referralNote": "Deploying via this link supports the project at no extra cost to you."
   },
   "Footer": {
     "tagline": "High-performance SQLite cache for Airtable.",
@@ -68,26 +77,5 @@
     "documentation": "Documentation",
     "railway": "Deploy on Railway",
     "copyright": "© 2026 Guischk · MIT License · Built with Bun"
-  },
-  "HomePage": {
-    "title": "Hello world!"
-  },
-  "LocaleDemo": {
-    "title": "Internationalization",
-    "description": "Live demo of next-intl: locale switching, translated strings, and formatted values.",
-    "greeting": "Welcome to Airboost",
-    "currentLocale": "Current locale",
-    "switchLocale": "Switch to {locale}",
-    "formattedDate": "Formatted date",
-    "formattedNumber": "Formatted number",
-    "relativeTime": "Relative time",
-    "languages": {
-      "en": "English",
-      "fr": "French"
-    }
-  },
-  "Links": {
-    "railway": "https://railway.com/deploy/aircache?referralCode=3Ri9K9&utm_medium=integration&utm_source=template&utm_campaign=generic",
-    "github": "https://github.com/guischk/airboost"
   }
 }
