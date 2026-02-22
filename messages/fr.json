@@ -72,10 +72,6 @@
   "QuickStart": {
     "title": "Démarrez en quelques secondes",
     "subtitle": "Fonctionne avec vos données Airtable existantes — aucune migration nécessaire.",
-    "diagramSource": "Votre source de données",
-    "diagramCache": "Proxy cache SQLite",
-    "diagramApp": "Votre App",
-    "diagramSpeed": "Requêtes sub-ms",
     "tabLocal": "Local",
     "tabDocker": "Docker",
     "tabRailway": "Railway",

@@ -40,13 +40,19 @@ export function Footer() {
             <div className="flex flex-col items-center gap-2 sm:items-start">
               <div className="flex items-center gap-2 font-bold">
                 <Image
-                  src="/airboost_logo.svg"
-                  alt="Airboost Logo"
-                  width={20}
-                  height={20}
-                  className="size-5"
+                  src="/airboost_mascotte.svg"
+                  alt="Airboost Mascot"
+                  width={28}
+                  height={28}
+                  className="size-7"
                 />
-                <span>Airboost</span>
+                <Image
+                  src="/airboost_nom.svg"
+                  alt="Airboost"
+                  width={90}
+                  height={20}
+                  className="h-5 w-auto"
+                />
               </div>
               <p className="text-muted-foreground text-sm">{t("tagline")}</p>
             </div>

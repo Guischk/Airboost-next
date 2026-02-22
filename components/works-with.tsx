@@ -58,6 +58,8 @@ export function WorksWith() {
                 <Image
                   key={name}
                   src={codeFrameworkLogos[name]}
+                  width={64}
+                  height={64}
                   alt={name}
                   className="size-12 md:size-16"
                 />
@@ -66,6 +68,8 @@ export function WorksWith() {
                 <Image
                   key={name}
                   src={nocodeToolLogos[name]}
+                  width={64}
+                  height={64}
                   alt={name}
                   className="size-12 md:size-16"
                 />
