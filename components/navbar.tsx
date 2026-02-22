@@ -59,6 +59,12 @@ export function Navbar() {
           >
             {t("features")}
           </a>
+          <Link
+            href="/how-it-works"
+            className="transition-colors hover:text-foreground"
+          >
+            {t("howItWorks")}
+          </Link>
           <a
             href="https://github.com/Guischk/AirBoost"
             target="_blank"
@@ -108,6 +114,13 @@ export function Navbar() {
             >
               {t("features")}
             </a>
+            <Link
+              href="/how-it-works"
+              onClick={handleNavClick}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {t("howItWorks")}
+            </Link>
             <a
               href="https://github.com/Guischk/AirBoost"
               target="_blank"

@@ -12,6 +12,7 @@
   },
   "Navbar": {
     "features": "Features",
+    "howItWorks": "How it works",
     "github": "GitHub",
     "deployNow": "Deploy Now"
   },
@@ -24,7 +25,16 @@
     "ctaGithub": "Star on GitHub",
     "airtableLabel": "Airtable API",
     "responseTime": "Avg. response time",
-    "fasterBadge": "240x Faster"
+    "fasterBadge": "240x Faster",
+    "rateLimitAirtable": "5 req/s",
+    "rateLimitAirboost": "Unlimited",
+    "rateLimitLabel": "Rate limits",
+    "quotaAirtable": "100k req/month",
+    "quotaAirboost": "Unlimited",
+    "quotaLabel": "Monthly quotas",
+    "uptimeAirtable": "Dependent",
+    "uptimeAirboost": "100%",
+    "uptimeLabel": "Availability"
   },
   "WorksWith": {
     "title": "Works with any frontend — code or no-code",
@@ -47,7 +57,15 @@
     },
     "realTimeSync": {
       "name": "Real-time Sync",
-      "description": "Webhook support for instant updates when your data changes in Airtable."
+      "description": "Three sync modes to fit your needs — automatic polling, real-time webhooks, or manual control. Your data stays fresh, your way."
+    },
+    "attachments": {
+      "name": "Attachment Support",
+      "description": "Automatic downloading and serving of Airtable file attachments with deduplication and local caching."
+    },
+    "typeSafety": {
+      "name": "Type Safety",
+      "description": "Auto-generated TypeScript type definitions from your Airtable schema. Full type safety for your frontend."
     }
   },
   "QuickStart": {
@@ -77,7 +95,87 @@
     "github": "GitHub",
     "issues": "Issues",
     "documentation": "Documentation",
+    "howItWorks": "How it works",
     "railway": "Deploy on Railway",
     "copyright": "© 2026 Guischk · MIT License · Built with Bun"
+  },
+  "HowItWorks": {
+    "metadata": {
+      "title": "How Airboost Works — Architecture, Benchmarks & Sync Modes",
+      "description": "Learn how Airboost achieves 240x faster queries with dual-database architecture, real-time sync, and sub-millisecond SQLite caching for Airtable."
+    },
+    "hero": {
+      "title": "How Airboost Works",
+      "subtitle": "A transparent look at the architecture and real-world performance behind Airboost."
+    },
+    "benchmarks": {
+      "title": "Real-World Benchmarks",
+      "subtitle": "Measured on a production deployment with 19 Airtable tables, across 4 query scenarios.",
+      "scenario": "Scenario",
+      "sqlite": "SQLite",
+      "airtable": "Airtable",
+      "improvement": "Speed-up",
+      "singleRecord": "Single record",
+      "singleRecordSqlite": "0.5 ms",
+      "singleRecordAirtable": "288 ms",
+      "singleRecordImprovement": "540x",
+      "smallBatch": "Small batch (10 records)",
+      "smallBatchSqlite": "2.2 ms",
+      "smallBatchAirtable": "272 ms",
+      "smallBatchImprovement": "124x",
+      "mediumBatch": "Medium batch (50 records)",
+      "mediumBatchSqlite": "2.3 ms",
+      "mediumBatchAirtable": "302 ms",
+      "mediumBatchImprovement": "129x",
+      "fullScan": "Full table scan",
+      "fullScanSqlite": "1.1 ms",
+      "fullScanAirtable": "296 ms",
+      "fullScanImprovement": "278x",
+      "averageLabel": "Average improvement",
+      "averageValue": "242x faster",
+      "latencyReduction": "99.4% latency reduction across all scenarios"
+    },
+    "architecture": {
+      "title": "Dual-Database Architecture",
+      "subtitle": "Zero downtime, guaranteed. Here's how.",
+      "step1Title": "Active Database Serves Requests",
+      "step1Description": "All API requests hit the active SQLite database with sub-millisecond response times. Your app always gets data instantly.",
+      "step2Title": "Background Refresh",
+      "step2Description": "The inactive database quietly syncs fresh data from Airtable in the background. Zero impact on live queries.",
+      "step3Title": "Atomic Swap",
+      "step3Description": "Once the refresh completes, databases swap atomically in a single operation. If anything fails, the active database stays untouched — automatic rollback.",
+      "result": "Your API never goes down, even during data refreshes. Every request returns consistent, fresh data."
+    },
+    "syncModes": {
+      "title": "Three Ways to Stay in Sync",
+      "subtitle": "Choose the sync strategy that fits your use case.",
+      "pollingName": "Polling",
+      "pollingDescription": "Automatic full refresh at a configurable interval. Simple, reliable, perfect for most use cases.",
+      "pollingBestFor": "Content sites, internal tools, dashboards",
+      "webhookName": "Webhook",
+      "webhookDescription": "Real-time updates pushed by Airtable the moment data changes. HMAC-validated for security.",
+      "webhookBestFor": "Live dashboards, collaborative apps, inventory tracking",
+      "manualName": "Manual",
+      "manualDescription": "Full control — trigger a refresh only when you decide, via a single API call.",
+      "manualBestFor": "Batch processing, CI/CD pipelines, scheduled workflows"
+    },
+    "useCases": {
+      "title": "Built for Real Use Cases",
+      "subtitle": "Airboost shines wherever Airtable's API limits hold you back.",
+      "highTrafficName": "High-Traffic Applications",
+      "highTrafficDescription": "Serve Airtable data to thousands of concurrent users without hitting rate limits or throttling.",
+      "dashboardsName": "Real-Time Dashboards",
+      "dashboardsDescription": "Power analytics dashboards with sub-millisecond response times, directly from your Airtable data.",
+      "mobileName": "Mobile Applications",
+      "mobileDescription": "Give your mobile app fast, reliable data access with background sync keeping everything up to date.",
+      "ecommerceName": "E-Commerce Platforms",
+      "ecommerceDescription": "Cache product catalogs and inventory from Airtable for instant page loads and seamless shopping experiences."
+    },
+    "cta": {
+      "title": "Ready to see the difference?",
+      "subtitle": "Deploy Airboost in 60 seconds and start serving your Airtable data 240x faster.",
+      "deploy": "Deploy on Railway",
+      "github": "View on GitHub"
+    }
   }
 }

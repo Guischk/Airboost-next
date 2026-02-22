@@ -5,11 +5,12 @@ import { Container } from "@/components/base/container";
 import { Section } from "@/components/base/section";
 import { Separator } from "@/components/ui/separator";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations("Footer");
 
-  const links = [
+  const externalLinks = [
     {
       label: t("github"),
       href: "https://github.com/Guischk/AirBoost",
@@ -55,7 +56,13 @@ export function Footer() {
               <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
                 {t("resources")}
               </p>
-              {links.map((link) => (
+              <Link
+                href="/how-it-works"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {t("howItWorks")}
+              </Link>
+              {externalLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}

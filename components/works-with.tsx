@@ -52,59 +52,22 @@ export function WorksWith() {
           <div className="relative">
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent" />
-            <Marquee pauseOnHover className="[--duration:30s] [--gap:3rem]">
+            <div className="flex  justify-center items-center gap-8">
               {codeFrameworks.map(({ name }) => (
-                <div
-                  key={name}
-                  className="flex items-center gap-2 text-muted-foreground/50 transition-colors hover:text-muted-foreground"
-                  title={name}
-                >
-                  <img
-                    src={codeFrameworkLogos[name]}
-                    alt={name}
-                    className="h-5 w-5"
-                  />
-                  <span className="text-sm font-medium">{name}</span>
-                </div>
+                <img
+                  src={codeFrameworkLogos[name]}
+                  alt={name}
+                  className="size-12 md:size-16"
+                />
               ))}
-            </Marquee>
-          </div>
-        </BlurFade>
-
-        {/* Separator */}
-        <div className="my-6 flex items-center justify-center gap-4">
-          <div className="h-px w-12 bg-border" />
-          <span className="text-xs text-muted-foreground/50">
-            {t("nocode")}
-          </span>
-          <div className="h-px w-12 bg-border" />
-        </div>
-
-        {/* No-code Tools — scrolling right */}
-        <BlurFade delay={0.2} inView>
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background to-transparent" />
-            <Marquee
-              reverse
-              pauseOnHover
-              className="[--duration:25s] [--gap:3rem]"
-            >
               {nocodeTools.map(({ name }) => (
-                <div
-                  key={name}
-                  className="flex items-center gap-2 text-muted-foreground/50 transition-colors hover:text-muted-foreground"
-                  title={name}
-                >
-                  <img
-                    src={nocodeToolLogos[name]}
-                    alt={name}
-                    className="h-5 w-5"
-                  />
-                  <span className="text-sm font-medium">{name}</span>
-                </div>
+                <img
+                  src={nocodeToolLogos[name]}
+                  alt={name}
+                  className="size-12 md:size-16"
+                />
               ))}
-            </Marquee>
+            </div>
           </div>
         </BlurFade>
       </Container>

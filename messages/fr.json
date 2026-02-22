@@ -12,6 +12,7 @@
   },
   "Navbar": {
     "features": "Fonctionnalités",
+    "howItWorks": "Comment ça marche",
     "github": "GitHub",
     "deployNow": "Déployer"
   },
@@ -24,7 +25,16 @@
     "ctaGithub": "Star sur GitHub",
     "airtableLabel": "API Airtable",
     "responseTime": "Temps de réponse moyen",
-    "fasterBadge": "240x plus rapide"
+    "fasterBadge": "240x plus rapide",
+    "rateLimitAirtable": "5 req/s",
+    "rateLimitAirboost": "Illimité",
+    "rateLimitLabel": "Limites de débit",
+    "quotaAirtable": "100k req/mois",
+    "quotaAirboost": "Illimité",
+    "quotaLabel": "Quotas mensuels",
+    "uptimeAirtable": "Dépendante",
+    "uptimeAirboost": "100%",
+    "uptimeLabel": "Disponibilité"
   },
   "WorksWith": {
     "title": "Compatible avec tout frontend — code ou no-code",
@@ -47,7 +57,15 @@
     },
     "realTimeSync": {
       "name": "Sync temps réel",
-      "description": "Support webhook pour des mises à jour instantanées quand vos données changent dans Airtable."
+      "description": "Trois modes de synchronisation selon vos besoins — polling automatique, webhooks temps réel ou contrôle manuel. Vos données restent fraîches, à votre rythme."
+    },
+    "attachments": {
+      "name": "Pièces jointes",
+      "description": "Téléchargement et service automatique des fichiers Airtable avec déduplication et cache local."
+    },
+    "typeSafety": {
+      "name": "Types auto-générés",
+      "description": "Définitions TypeScript auto-générées depuis votre schéma Airtable. Typage complet pour votre frontend."
     }
   },
   "QuickStart": {
@@ -77,7 +95,87 @@
     "github": "GitHub",
     "issues": "Issues",
     "documentation": "Documentation",
+    "howItWorks": "Comment ça marche",
     "railway": "Déployer sur Railway",
     "copyright": "© 2026 Guischk · Licence MIT · Propulsé par Bun"
+  },
+  "HowItWorks": {
+    "metadata": {
+      "title": "Comment fonctionne Airboost — Architecture, benchmarks et modes de sync",
+      "description": "Découvrez comment Airboost atteint des requêtes 240x plus rapides grâce à son architecture dual-database, la sync temps réel et le cache SQLite sub-milliseconde pour Airtable."
+    },
+    "hero": {
+      "title": "Comment fonctionne Airboost",
+      "subtitle": "Un regard transparent sur l'architecture et les performances réelles derrière Airboost."
+    },
+    "benchmarks": {
+      "title": "Benchmarks en production",
+      "subtitle": "Mesurés sur un déploiement réel avec 19 tables Airtable, sur 4 scénarios de requêtes.",
+      "scenario": "Scénario",
+      "sqlite": "SQLite",
+      "airtable": "Airtable",
+      "improvement": "Gain",
+      "singleRecord": "Enregistrement unique",
+      "singleRecordSqlite": "0,5 ms",
+      "singleRecordAirtable": "288 ms",
+      "singleRecordImprovement": "540x",
+      "smallBatch": "Petit lot (10 enregistrements)",
+      "smallBatchSqlite": "2,2 ms",
+      "smallBatchAirtable": "272 ms",
+      "smallBatchImprovement": "124x",
+      "mediumBatch": "Lot moyen (50 enregistrements)",
+      "mediumBatchSqlite": "2,3 ms",
+      "mediumBatchAirtable": "302 ms",
+      "mediumBatchImprovement": "129x",
+      "fullScan": "Scan complet de table",
+      "fullScanSqlite": "1,1 ms",
+      "fullScanAirtable": "296 ms",
+      "fullScanImprovement": "278x",
+      "averageLabel": "Amélioration moyenne",
+      "averageValue": "242x plus rapide",
+      "latencyReduction": "99,4% de réduction de latence sur tous les scénarios"
+    },
+    "architecture": {
+      "title": "Architecture dual-database",
+      "subtitle": "Zéro interruption, garanti. Voici comment.",
+      "step1Title": "La base active sert les requêtes",
+      "step1Description": "Toutes les requêtes API sont servies par la base SQLite active avec des temps de réponse sub-milliseconde. Votre app reçoit toujours les données instantanément.",
+      "step2Title": "Rafraîchissement en arrière-plan",
+      "step2Description": "La base inactive synchronise silencieusement les nouvelles données depuis Airtable en arrière-plan. Zéro impact sur les requêtes en cours.",
+      "step3Title": "Swap atomique",
+      "step3Description": "Une fois le rafraîchissement terminé, les bases permutent atomiquement en une seule opération. En cas d'erreur, la base active reste intacte — rollback automatique.",
+      "result": "Votre API ne tombe jamais, même pendant les rafraîchissements. Chaque requête retourne des données cohérentes et fraîches."
+    },
+    "syncModes": {
+      "title": "Trois façons de rester synchronisé",
+      "subtitle": "Choisissez la stratégie de sync adaptée à votre cas d'usage.",
+      "pollingName": "Polling",
+      "pollingDescription": "Rafraîchissement automatique à intervalle configurable. Simple, fiable, parfait pour la plupart des cas.",
+      "pollingBestFor": "Sites de contenu, outils internes, tableaux de bord",
+      "webhookName": "Webhook",
+      "webhookDescription": "Mises à jour en temps réel poussées par Airtable dès que les données changent. Validées par HMAC pour la sécurité.",
+      "webhookBestFor": "Dashboards live, apps collaboratives, suivi d'inventaire",
+      "manualName": "Manuel",
+      "manualDescription": "Contrôle total — déclenchez un rafraîchissement uniquement quand vous le décidez, via un simple appel API.",
+      "manualBestFor": "Traitement par lots, pipelines CI/CD, workflows planifiés"
+    },
+    "useCases": {
+      "title": "Conçu pour des cas réels",
+      "subtitle": "Airboost excelle partout où les limites de l'API Airtable vous freinent.",
+      "highTrafficName": "Applications à fort trafic",
+      "highTrafficDescription": "Servez les données Airtable à des milliers d'utilisateurs simultanés sans subir de rate limits ni de throttling.",
+      "dashboardsName": "Dashboards temps réel",
+      "dashboardsDescription": "Alimentez des tableaux de bord analytiques avec des temps de réponse sub-milliseconde, directement depuis vos données Airtable.",
+      "mobileName": "Applications mobiles",
+      "mobileDescription": "Offrez à votre app mobile un accès rapide et fiable aux données avec une sync en arrière-plan toujours à jour.",
+      "ecommerceName": "Plateformes e-commerce",
+      "ecommerceDescription": "Mettez en cache catalogues produits et inventaires depuis Airtable pour des chargements instantanés et une expérience d'achat fluide."
+    },
+    "cta": {
+      "title": "Prêt à voir la différence ?",
+      "subtitle": "Déployez Airboost en 60 secondes et servez vos données Airtable 240x plus vite.",
+      "deploy": "Déployer sur Railway",
+      "github": "Voir sur GitHub"
+    }
   }
 }
