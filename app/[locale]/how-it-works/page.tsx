@@ -74,7 +74,7 @@ export default async function HowItWorksPage({
         <Section className="pt-28 pb-8 md:pt-40 md:pb-12">
           <Container className="flex flex-col items-center text-center">
             <BlurFade delay={0}>
-              <Title header="h1" size="xl" className="max-w-3xl">
+              <Title header="h1" size="display" className="max-w-3xl">
                 {t("title")}
               </Title>
             </BlurFade>

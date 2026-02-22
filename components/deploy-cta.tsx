@@ -30,7 +30,7 @@ export function DeployCTA() {
             />
 
             <div className="relative z-10 flex flex-col items-center">
-              <Title header="h2" size="xl">
+              <Title header="h2" size="2xl">
                 {t("title")}
               </Title>
               <Paragraph

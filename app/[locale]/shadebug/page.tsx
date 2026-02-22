@@ -42,7 +42,7 @@ export default function ShadcnDebugPage() {
     <Section spacing="sm">
       <Container className="space-y-16">
         <header className="space-y-2">
-          <Title header="h1" size="xl">
+          <Title header="h1" size="display">
             Debug — Shadcn & MagicUI Components
           </Title>
           <Paragraph variant="muted">

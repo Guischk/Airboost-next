@@ -39,7 +39,7 @@ export async function Hero() {
         <BlurFade delay={0}>
           <Badge
             variant="outline"
-            className="gap-2 border-border/60 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground"
+            className="border-border bg-white/10 text-sm text-muted-foreground"
           >
             {t("Hero.badge")}
           </Badge>
@@ -47,9 +47,9 @@ export async function Hero() {
 
         {/* Main Title */}
         <BlurFade delay={0.1} className="mt-8">
-          <Title header="h1" size="xl" className="max-w-4xl">
+          <Title header="h1" size="display" className="max-w-4xl">
             {t("Hero.titleBefore")}{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-primary to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               {t("Hero.titleHighlight")}
             </span>
           </Title>

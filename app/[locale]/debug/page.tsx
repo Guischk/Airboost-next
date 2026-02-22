@@ -13,7 +13,7 @@ const titleVariants = [
   "secondary",
   "destructive",
 ] as const;
-const titleSizes = ["default", "sm", "lg", "xl"] as const;
+const titleSizes = ["default", "sm", "lg", "xl", "2xl", "display"] as const;
 
 const paragraphVariants = [
   "default",
@@ -29,7 +29,7 @@ export default function DebugPage() {
     <Section spacing="sm">
       <Container className="space-y-16">
         <header className="space-y-2">
-          <Title header="h1" size="xl">
+          <Title header="h1" size="display">
             Debug — Base Components
           </Title>
           <Paragraph variant="muted">

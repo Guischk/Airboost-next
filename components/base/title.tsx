@@ -17,7 +17,9 @@ const titleVariants = cva("font-bold tracking-tight", {
       default: "text-xl md:text-2xl",
       sm: "text-lg md:text-xl",
       lg: "text-2xl md:text-3xl",
-      xl: "text-3xl md:text-4xl lg:text-5xl",
+      xl: "text-3xl md:text-4xl",
+      "2xl": "text-4xl md:text-5xl lg:text-6xl",
+      display: "text-5xl md:text-6xl lg:text-7xl",
     },
   },
   defaultVariants: {
